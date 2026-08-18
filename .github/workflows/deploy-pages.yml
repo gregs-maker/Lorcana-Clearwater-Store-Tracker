@@ -1,0 +1,74 @@
+name: Update Play Hub data and deploy site
+
+on:
+  # Run automatically every Monday at 13:00 UTC
+  schedule:
+    - cron: "0 13 * * 1"
+
+  # Also allow us to run it manually from the Actions tab
+  workflow_dispatch:
+
+  # Rebuild the site whenever we change the main branch
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update Play Hub data
+        run: npm run sync
+
+      - name: Copy data into website
+        run: |
+          mkdir -p public/data
+          cp data/stores.json public/data/stores.json
+
+      - name: Save updated data to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/stores.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Play Hub data"
+            git push
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

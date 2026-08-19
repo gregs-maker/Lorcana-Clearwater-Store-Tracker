@@ -97,3 +97,8 @@ npm run sync -- --radius 20
 Or double-click `sync-custom-radius.bat` and enter the radius when prompted.
 
 Stores with no recorded Play Hub events are excluded from the saved dataset and dashboard.
+
+
+## Version 2.1 web filters
+
+The weekly sync collects registered Play Hub stores within 40 miles of Clearwater. The public site defaults to 15 miles and hides stores with zero events. Visitors can adjust the radius from 1–40 miles and optionally include zero-event stores without making new API requests.

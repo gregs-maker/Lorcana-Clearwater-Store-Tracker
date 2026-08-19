@@ -31,6 +31,7 @@ function isPrerelease(event) {
   return config.prerelease.namePatterns.some(p => text.includes(normalize(p)));
 }
 function eventDate(event) { return event.start_datetime ?? event.startDateTime ?? event.date ?? null; }
+
 // fetchStores() returns a GameStore wrapper. The numeric ID used by
 // event searches lives at gameStore.store.id; gameStore.id is a UUID.
 function storeId(gameStore) {
@@ -48,9 +49,67 @@ function storeAddress(gameStore) {
     ?? store.address?.formattedAddress
     ?? store.address?.formatted_address
     ?? store.formatted_address
+    ?? [store.address_1, store.city, store.state, store.postal_code].filter(Boolean).join(", ")
     ?? [store.city, store.state].filter(Boolean).join(", ")
     ?? "";
 }
+
+function firstNumber(...values) {
+  for (const value of values) {
+    const n = Number(value);
+    if (Number.isFinite(n)) return n;
+  }
+  return null;
+}
+
+function storeCoordinates(gameStore) {
+  const store = gameStore?.store ?? gameStore ?? {};
+  const address = store?.address ?? {};
+  const location = store?.location ?? gameStore?.location ?? {};
+  const lat = firstNumber(
+    store.latitude, store.lat, address.latitude, address.lat,
+    location.latitude, location.lat, gameStore?.latitude, gameStore?.lat
+  );
+  const lng = firstNumber(
+    store.longitude, store.lng, store.lon, address.longitude, address.lng, address.lon,
+    location.longitude, location.lng, location.lon,
+    gameStore?.longitude, gameStore?.lng, gameStore?.lon
+  );
+  return lat == null || lng == null ? null : { lat, lng };
+}
+
+function haversineMiles(lat1, lng1, lat2, lng2) {
+  const toRad = value => value * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat / 2) ** 2
+    + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  return 3958.7613 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+async function distanceFromCenter(gameStore, center) {
+  // Some API responses include a distance directly. Use it if present.
+  const store = gameStore?.store ?? {};
+  const direct = firstNumber(
+    gameStore?.distance_miles, gameStore?.distanceMiles,
+    store?.distance_miles, store?.distanceMiles
+  );
+  if (direct != null && direct >= 0) return direct;
+
+  const coords = storeCoordinates(gameStore);
+  if (coords) return haversineMiles(center.lat, center.lng, coords.lat, coords.lng);
+
+  // Last-resort fallback: geocode the store address once during the weekly sync.
+  const address = storeAddress(gameStore);
+  if (!address) return null;
+  try {
+    const point = await geocode(address);
+    return haversineMiles(center.lat, center.lng, point.lat, point.lng);
+  } catch {
+    return null;
+  }
+}
+
 function playerKey(reg) {
   // Prefer stable opaque identifiers; do not publish player names.
   const candidates = [
@@ -58,7 +117,6 @@ function playerKey(reg) {
     reg.user_event_status?.user?.id,
     reg.user_event_status?.user_id,
     reg.user?.id,
-    reg.player?.id,
     reg.user_id,
     reg.id
   ].filter(v => v != null);
@@ -91,7 +149,7 @@ console.log(`Locating ${config.location.query}...`);
 const center = await geocode(config.location.query);
 console.log(`Finding stores within ${radiusMiles} miles of ${center.formattedAddress}...`);
 const stores = await fetchNearbyStores(center.lat, center.lng, radiusMiles);
-console.log(`Found ${stores.length} stores.`);
+console.log(`Found ${stores.length} registered stores.`);
 
 const metricStart = isoDate(daysAgo(config.metricWindow.rollingDays));
 const outputStores = [];
@@ -102,6 +160,9 @@ for (let index = 0; index < stores.length; index++) {
   if (sid == null) continue;
   console.log(`[${index + 1}/${stores.length}] ${storeName(store)}`);
 
+  const distanceMiles = await distanceFromCenter(store, center);
+  if (distanceMiles == null) console.warn("  Distance unavailable; store will only appear at the maximum radius.");
+
   let events = [];
   try {
     events = await fetchStoreEvents(sid, config.historyStart, isoDate(asOf));
@@ -109,12 +170,9 @@ for (let index = 0; index < stores.length; index++) {
     console.warn(`  Could not fetch events: ${err.message}`);
     continue;
   }
+
   const datedEvents = events.filter(e => eventDate(e)).sort((a,b) => new Date(eventDate(a)) - new Date(eventDate(b)));
-  if (datedEvents.length === 0) {
-    console.log("  Skipping: no recorded Play Hub events.");
-    continue;
-  }
-  const firstActivity = eventDate(datedEvents[0]);
+  const firstActivity = datedEvents.length ? eventDate(datedEvents[0]) : null;
   const metricEvents = datedEvents.filter(e => new Date(eventDate(e)) >= new Date(`${metricStart}T00:00:00Z`) && new Date(eventDate(e)) <= asOf);
 
   let tickets = 0;
@@ -141,17 +199,20 @@ for (let index = 0; index < stores.length; index++) {
     uniquePlayers: unique.size,
     tickets,
     prereleasesRun: prereleases.length,
-    // Exact eligible prerelease count requires explicit set-season configuration.
     eligiblePrereleases: null
   };
   const evaluation = evaluateTier(metrics, firstActivity, asOf, config);
+
+  if (datedEvents.length === 0) console.log("  Registered store with no recorded Play Hub events (kept for optional display).");
 
   outputStores.push({
     storeId: sid,
     gameStoreId: storeUuid(store),
     name: storeName(store),
     address: storeAddress(store),
+    distanceMiles: distanceMiles == null ? null : Math.round(distanceMiles * 10) / 10,
     firstActivity,
+    hasRecordedEvents: datedEvents.length > 0,
     metrics,
     tier: evaluation,
     dataQuality: {
@@ -168,6 +229,8 @@ const payload = {
   generatedAt: asOf.toISOString(),
   center,
   radiusMiles,
+  defaultDisplayRadiusMiles: 15,
+  maxDisplayRadiusMiles: 40,
   metricStart,
   metricEnd: isoDate(asOf),
   methodology: {
@@ -180,4 +243,4 @@ const payload = {
 };
 
 await fs.writeFile(path.join(root, "data", "stores.json"), JSON.stringify(payload, null, 2));
-console.log(`Saved ${outputStores.length} stores to data/stores.json`);
+console.log(`Saved ${outputStores.length} registered stores to data/stores.json`);

@@ -26,10 +26,13 @@ function inRadius(store,r){
   // If distance could not be resolved during sync, keep it available only at the max setting.
   return store.distanceMiles == null ? r >= maxRadius : store.distanceMiles <= r + 0.05;
 }
+function displayTier(store){
+  return store.metrics.events === 0 ? 'Inactive' : store.tier.tier;
+}
 function renderSummary(rows){
-  const counts={Legendary:0,Standard:0,Welcome:0};
-  rows.forEach(s=>counts[s.tier.tier]++);
-  $('#summary').innerHTML=`<div class="card">Stores<b>${rows.length}</b></div><div class="card">Legendary<b>${counts.Legendary}</b></div><div class="card">Standard<b>${counts.Standard}</b></div><div class="card">Welcome<b>${counts.Welcome}</b></div>`;
+  const counts={Legendary:0,Standard:0,Welcome:0,Inactive:0};
+  rows.forEach(s=>counts[displayTier(s)]++);
+  $('#summary').innerHTML=`<div class="card">Stores<b>${rows.length}</b></div><div class="card">Legendary<b>${counts.Legendary}</b></div><div class="card">Standard<b>${counts.Standard}</b></div><div class="card">Welcome<b>${counts.Welcome}</b></div><div class="card">Inactive<b>${counts.Inactive}</b></div>`;
 }
 function render(){
   updateScope();
@@ -41,18 +44,24 @@ function render(){
     inRadius(s,r) &&
     (includeZero || s.metrics.events > 0) &&
     (!q || s.name.toLowerCase().includes(q)) &&
-    (!tier || s.tier.tier===tier)
+    (!tier || displayTier(s)===tier)
   );
   renderSummary(rows);
-  $('#rows').innerHTML=rows.map(s=>`<tr data-id="${esc(s.storeId)}"><td><strong>${esc(s.name)}${s.tier.isNew?'*':''}</strong><div class="fine">${esc(s.address)}${s.distanceMiles!=null?` · ${s.distanceMiles.toFixed(1)} mi`:''}${s.metrics.events===0?' · No recorded events':''}</div></td><td class="tier ${s.tier.tier}">${s.tier.tier}${s.tier.isNew?'*':''}</td><td>${s.metrics.events}</td><td>${s.metrics.uniquePlayers}</td><td>${s.metrics.tickets}</td><td>${esc(s.tier.path)}</td></tr>`).join('')||'<tr><td colspan="6">No matching stores.</td></tr>';
+  $('#rows').innerHTML=rows.map(s=>{const shownTier=displayTier(s);return `<tr data-id="${esc(s.storeId)}"><td><strong>${esc(s.name)}${s.tier.isNew?'*':''}</strong><div class="fine">${esc(s.address)}${s.distanceMiles!=null?` · ${s.distanceMiles.toFixed(1)} mi`:''}${s.metrics.events===0?' · No recorded events in the past year':''}</div></td><td class="tier ${shownTier}">${shownTier}${s.tier.isNew?'*':''}</td><td>${s.metrics.events}</td><td>${s.metrics.uniquePlayers}</td><td>${s.metrics.tickets}</td><td>${s.metrics.events===0?'No recorded activity in the past year':esc(s.tier.path)}</td></tr>`}).join('')||'<tr><td colspan="6">No matching stores.</td></tr>';
   document.querySelectorAll('tbody tr[data-id]').forEach(tr=>tr.onclick=()=>show(stores.find(s=>String(s.storeId)===tr.dataset.id)));
 }
 function show(s){
+  const shownTier=displayTier(s);
   const target=s.tier.nextTier==='Standard'?s.tier.standardTarget:s.tier.legendaryTarget;
   const metric=(label,v,t)=>`<div class="metric"><div class="metric-line"><span>${label}</span><strong>${v} / ${t}</strong></div><div class="meter"><span style="width:${pct(v,t)}%"></span></div></div>`;
   $('#details').classList.remove('hidden');
   const activity=s.firstActivity?new Date(s.firstActivity).toLocaleDateString():'No recorded events';
-  $('#details').innerHTML=`<h2>${esc(s.name)}${s.tier.isNew?'*':''}</h2><p><strong>Estimated tier: <span class="${s.tier.tier}">${s.tier.tier}</span></strong></p><p>${s.tier.nextTier?`To reach <strong>${s.tier.nextTier}</strong>: ${esc(s.tier.path)}`:'Meets the published Legendary maintenance thresholds.'}</p>${target?metric('Events',s.metrics.events,target.events)+metric('Unique players',s.metrics.uniquePlayers,target.uniquePlayers)+metric('Event tickets',s.metrics.tickets,target.tickets):''}<p class="fine">Distance from Clearwater: ${s.distanceMiles!=null?`${s.distanceMiles.toFixed(1)} miles`:'Unavailable'} · First recorded Play Hub activity: ${activity}${s.tier.isNew?` · Estimated first-year proration ${(s.tier.prorationFactor*100).toFixed(0)}%`:''}</p><p class="fine">Registration fetch failures: ${s.dataQuality.registrationFailures}. Prerelease eligibility exactness: ${s.dataQuality.prereleaseEligibilityKnown?'known':'not yet known'}.</p>`;
+  const inactive=s.metrics.events===0;
+  const statusText=inactive
+    ? 'No recorded Play Hub events in the past year.'
+    : (s.tier.nextTier?`To reach <strong>${s.tier.nextTier}</strong>: ${esc(s.tier.path)}`:'Meets the published Legendary maintenance thresholds.');
+  const metricsHtml=inactive?'':(target?metric('Events',s.metrics.events,target.events)+metric('Unique players',s.metrics.uniquePlayers,target.uniquePlayers)+metric('Event tickets',s.metrics.tickets,target.tickets):'');
+  $('#details').innerHTML=`<h2>${esc(s.name)}${s.tier.isNew?'*':''}</h2><p><strong>Estimated tier: <span class="${shownTier}">${shownTier}</span></strong></p><p>${statusText}</p>${metricsHtml}<p class="fine">Distance from Clearwater: ${s.distanceMiles!=null?`${s.distanceMiles.toFixed(1)} miles`:'Unavailable'} · First recorded Play Hub activity: ${activity}${s.tier.isNew?` · Estimated first-year proration ${(s.tier.prorationFactor*100).toFixed(0)}%`:''}</p><p class="fine">Registration fetch failures: ${s.dataQuality.registrationFailures}. Prerelease eligibility exactness: ${s.dataQuality.prereleaseEligibilityKnown?'known':'not yet known'}.</p>`;
   $('#details').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 

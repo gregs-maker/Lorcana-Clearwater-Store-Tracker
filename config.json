@@ -2,7 +2,7 @@
   "location": {
     "label": "Clearwater, Florida",
     "query": "Clearwater, FL, USA",
-    "radiusMiles": 30
+    "radiusMiles": 40
   },
   "metricWindow": {
     "mode": "rollingDays",
@@ -17,12 +17,24 @@
     "note": "Estimated first-year proration only. This is not claimed to be Ravensburger's official prorating formula."
   },
   "thresholds": {
-    "standard": { "events": 25, "uniquePlayers": 25, "tickets": 250 },
-    "legendary": { "events": 50, "uniquePlayers": 50, "tickets": 500 }
+    "standard": {
+      "events": 25,
+      "uniquePlayers": 25,
+      "tickets": 250
+    },
+    "legendary": {
+      "events": 50,
+      "uniquePlayers": 50,
+      "tickets": 500
+    }
   },
   "prerelease": {
     "required": true,
-    "namePatterns": ["prerelease", "pre-release", "pre release"]
+    "namePatterns": [
+      "prerelease",
+      "pre-release",
+      "pre release"
+    ]
   },
   "privacy": {
     "publishPlayerNames": false

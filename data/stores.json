@@ -1,13 +1,15 @@
 {
-  "generatedAt": "2026-08-18T23:50:44.119Z",
+  "generatedAt": "2026-08-19T00:06:51.087Z",
   "center": {
     "lat": 27.9655722,
     "lng": -82.7958948,
     "formattedAddress": "Clearwater, FL, USA"
   },
-  "radiusMiles": 30,
-  "metricStart": "2025-08-18",
-  "metricEnd": "2026-08-18",
+  "radiusMiles": 40,
+  "defaultDisplayRadiusMiles": 15,
+  "maxDisplayRadiusMiles": 40,
+  "metricStart": "2025-08-19",
+  "metricEnd": "2026-08-19",
   "methodology": {
     "metricWindow": {
       "mode": "rollingDays",
@@ -29,9 +31,11 @@
       "gameStoreId": "8f45cfff-559f-49b2-be93-e911d7da554e",
       "name": "Game-O-Storus",
       "address": "926 West Bay Drive, Largo, FL, 33770, US",
+      "distanceMiles": 3.4,
       "firstActivity": "2025-07-05T23:00:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
-        "events": 93,
+        "events": 92,
         "uniquePlayers": 93,
         "tickets": 705,
         "prereleasesRun": 5,
@@ -65,7 +69,9 @@
       "gameStoreId": "c1e22bcf-d3b7-4ac1-8a3a-707ced9c7c0a",
       "name": "Warehouse 51 games",
       "address": "38559, US Hwy 19 N, Palm Harbor, FL, 34684, US",
+      "distanceMiles": 11.4,
       "firstActivity": "2025-08-15T23:00:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 51,
         "uniquePlayers": 148,
@@ -101,7 +107,9 @@
       "gameStoreId": "63ad2546-9fc3-4440-a96c-63ff347a05be",
       "name": "Cool Stuff Games Tampa",
       "address": "10101 East Adamo Drive, Suite 601, Tampa, FL, 33619, US",
+      "distanceMiles": 27.9,
       "firstActivity": "2025-06-20T10:30:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 58,
         "uniquePlayers": 131,
@@ -133,11 +141,99 @@
       }
     },
     {
+      "storeId": 1149,
+      "gameStoreId": "725f6aeb-224e-46c4-9b7f-b2bfa93649d4",
+      "name": "Descent into Gaming",
+      "address": "5205, 33rd St E, Bradenton, FL, 34203, US",
+      "distanceMiles": 39.5,
+      "firstActivity": "2025-09-11T22:30:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 52,
+        "uniquePlayers": 67,
+        "tickets": 449,
+        "prereleasesRun": 4,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Standard",
+        "isNew": true,
+        "prorationFactor": 0.936986301369863,
+        "standardTarget": {
+          "events": 24,
+          "uniquePlayers": 24,
+          "tickets": 235
+        },
+        "legendaryTarget": {
+          "events": 47,
+          "uniquePlayers": 47,
+          "tickets": 469
+        },
+        "nextTier": "Legendary",
+        "nextDeficits": {
+          "events": 0,
+          "uniquePlayers": 0,
+          "tickets": 20,
+          "prereleases": null
+        },
+        "path": "20 more event tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 3563,
+      "gameStoreId": "f0d01a4a-d848-41a2-ad64-89a6885776c2",
+      "name": "Nerdy Needs",
+      "address": "733 West Lumsden Road, Brandon, FL, 33511, US",
+      "distanceMiles": 30.6,
+      "firstActivity": "2025-06-15T17:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 55,
+        "uniquePlayers": 121,
+        "tickets": 437,
+        "prereleasesRun": 4,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Standard",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Legendary",
+        "nextDeficits": {
+          "events": 0,
+          "uniquePlayers": 0,
+          "tickets": 63,
+          "prereleases": null
+        },
+        "path": "63 more event tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
       "storeId": 150,
       "gameStoreId": "76f0425a-f58b-4368-baf4-6ab6b20aee0a",
       "name": "Hyper Collectibles",
       "address": "6347 Massachusetts Avenue, 6347 Massachusetts Ave new port Richey fl, New Port Richey, FL, 34653, US",
+      "distanceMiles": 21,
       "firstActivity": "2025-07-11T01:30:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 58,
         "uniquePlayers": 73,
@@ -174,11 +270,56 @@
       }
     },
     {
+      "storeId": 4483,
+      "gameStoreId": "c53885e4-9248-4d02-88c3-b793d46505df",
+      "name": "Super Rare LLC",
+      "address": "210 South Kings Avenue, Suite L, Brandon, FL, 33511, US",
+      "distanceMiles": 30.7,
+      "firstActivity": "2025-06-25T23:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 56,
+        "uniquePlayers": 57,
+        "tickets": 376,
+        "prereleasesRun": 6,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Standard",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Legendary",
+        "nextDeficits": {
+          "events": 0,
+          "uniquePlayers": 0,
+          "tickets": 124,
+          "prereleases": null
+        },
+        "path": "124 more event tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
       "storeId": 392,
       "gameStoreId": "0aca62e3-f634-4faf-8c3e-a9eb5a5c9fb2",
       "name": "Beechboyz Comics LLC",
       "address": "2214 University Square Mall, Tampa, FL, 33612, US",
+      "distanceMiles": 22.8,
       "firstActivity": "2025-06-26T23:00:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 56,
         "uniquePlayers": 91,
@@ -219,7 +360,9 @@
       "gameStoreId": "3f1d1b82-148b-40af-ace7-b6ffea0c931c",
       "name": "Kitchen Table Games",
       "address": "9737 66th St N, Pinellas Park, FL, 33782, US",
+      "distanceMiles": 8.4,
       "firstActivity": "2025-08-17T21:30:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 39,
         "uniquePlayers": 50,
@@ -260,7 +403,9 @@
       "gameStoreId": "507e5d13-3df2-4340-ba18-be8a385589fe",
       "name": "Public Assembly",
       "address": "14202, Carlson Cir, Tampa, FL, 33626, US",
+      "distanceMiles": 11.3,
       "firstActivity": "2026-02-16T23:00:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 27,
         "uniquePlayers": 45,
@@ -297,11 +442,56 @@
       }
     },
     {
+      "storeId": 16263,
+      "gameStoreId": "6c932c6c-1177-4f53-8503-a589442db2b2",
+      "name": "Plot Armor Games",
+      "address": "3430 Deltona Boulevard, Spring Hill, FL, 34606, US",
+      "distanceMiles": 38.3,
+      "firstActivity": "2025-12-20T23:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 21,
+        "uniquePlayers": 46,
+        "tickets": 173,
+        "prereleasesRun": 3,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Standard",
+        "isNew": true,
+        "prorationFactor": 0.663013698630137,
+        "standardTarget": {
+          "events": 17,
+          "uniquePlayers": 17,
+          "tickets": 166
+        },
+        "legendaryTarget": {
+          "events": 34,
+          "uniquePlayers": 34,
+          "tickets": 332
+        },
+        "nextTier": "Legendary",
+        "nextDeficits": {
+          "events": 13,
+          "uniquePlayers": 0,
+          "tickets": 159,
+          "prereleases": null
+        },
+        "path": "13 more events averaging at least 13 tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
       "storeId": 1025,
       "gameStoreId": "cf5b67d0-00f9-4c8c-9cc8-fb241ce7db9c",
       "name": "Critical Hit Games St Petersburg",
       "address": "11270 4th Street North, suite 218, St Petersburg, FL, 33716, US",
+      "distanceMiles": 11.4,
       "firstActivity": "2025-08-02T16:00:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 16,
         "uniquePlayers": 62,
@@ -342,9 +532,11 @@
       "gameStoreId": "25ea9bdc-d113-4c15-bfc3-aa32b8c2a2e6",
       "name": "Gamers Command LLC",
       "address": "2130 West Brandon Boulevard, Suite 201, Brandon, FL, 33511, US",
+      "distanceMiles": 29.1,
       "firstActivity": "2025-07-13T17:00:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
-        "events": 42,
+        "events": 41,
         "uniquePlayers": 83,
         "tickets": 184,
         "prereleasesRun": 2,
@@ -383,7 +575,9 @@
       "gameStoreId": "672694f9-c61e-4487-b3c3-7a18608b18fa",
       "name": "Sunshine Games",
       "address": "13316 Telecom Drive, Tampa, FL, 33637, US",
+      "distanceMiles": 26.6,
       "firstActivity": "2025-07-20T19:00:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 30,
         "uniquePlayers": 77,
@@ -424,7 +618,9 @@
       "gameStoreId": "7721f8d2-cc30-4b59-9df6-e9ddcfde0fe3",
       "name": "Phoenix Emporium Games & Collectibles",
       "address": "2139 Drew Street, Clearwater, FL, 33765, US",
+      "distanceMiles": 2.9,
       "firstActivity": "2025-06-26T23:00:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 16,
         "uniquePlayers": 65,
@@ -461,11 +657,99 @@
       }
     },
     {
+      "storeId": 2269,
+      "gameStoreId": "847eb8db-f571-472a-b288-c89d228cf037",
+      "name": "Grading TCG",
+      "address": "2260 Commercial Way, Spring Hill, FL, 34606, US",
+      "distanceMiles": 36.1,
+      "firstActivity": "2025-06-14T22:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 29,
+        "uniquePlayers": 35,
+        "tickets": 152,
+        "prereleasesRun": 6,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 0,
+          "uniquePlayers": 0,
+          "tickets": 98,
+          "prereleases": null
+        },
+        "path": "98 more event tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 3369,
+      "gameStoreId": "3ab2ef43-7fd8-48e7-9d19-9eb2600f270f",
+      "name": "Mez Comics & Games",
+      "address": "8208 Cortez Road West, Bradenton, FL, 34210, US",
+      "distanceMiles": 36,
+      "firstActivity": "2025-07-19T16:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 13,
+        "uniquePlayers": 41,
+        "tickets": 105,
+        "prereleasesRun": 4,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 12,
+          "uniquePlayers": 0,
+          "tickets": 145,
+          "prereleases": null
+        },
+        "path": "12 more events averaging at least 13 tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
       "storeId": 1444,
       "gameStoreId": "475a9443-2e4f-4b95-b1f5-6752644ad509",
       "name": "Emerald City Comics",
       "address": "4902 113th Avenue North, Clearwater, FL, 33760, US",
+      "distanceMiles": 8.6,
       "firstActivity": "2026-01-17T16:00:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 7,
         "uniquePlayers": 42,
@@ -502,11 +786,56 @@
       }
     },
     {
+      "storeId": 152,
+      "gameStoreId": "73fc6c66-5213-432e-bf87-aa8ca9d8bdfb",
+      "name": "Alpha Quadrant Games",
+      "address": "3104 State Road 60, Valrico, FL, 33594, US",
+      "distanceMiles": 34.5,
+      "firstActivity": "2025-10-26T19:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 8,
+        "uniquePlayers": 52,
+        "tickets": 80,
+        "prereleasesRun": 2,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": true,
+        "prorationFactor": 0.8136986301369863,
+        "standardTarget": {
+          "events": 21,
+          "uniquePlayers": 21,
+          "tickets": 204
+        },
+        "legendaryTarget": {
+          "events": 41,
+          "uniquePlayers": 41,
+          "tickets": 407
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 13,
+          "uniquePlayers": 0,
+          "tickets": 124,
+          "prereleases": null
+        },
+        "path": "13 more events averaging at least 10 tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
       "storeId": 32013,
       "gameStoreId": "fb7e79b9-03e3-4bb0-be69-66c3f68b954c",
       "name": "House Rules Board game cafe",
       "address": "7130, Big Bend Rd, Gibsonton, FL, 33534, US",
+      "distanceMiles": 28.6,
       "firstActivity": "2026-03-28T17:00:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 10,
         "uniquePlayers": 45,
@@ -547,7 +876,9 @@
       "gameStoreId": "2ff78c35-eedc-4209-97d1-f38d9a2f9066",
       "name": "Aetheria Arts LLC",
       "address": "9409 U.S. 19, Suite 229, PORT RICHEY, FL, 34668, US",
+      "distanceMiles": 22.7,
       "firstActivity": "2025-06-15T06:00:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 15,
         "uniquePlayers": 31,
@@ -588,7 +919,9 @@
       "gameStoreId": "9a122235-4043-490a-b001-481a47c6ca3c",
       "name": "Coliseum of Comics New Tampa",
       "address": "19402 Bruce B Downs Boulevard, Tampa, FL, 33647, US",
+      "distanceMiles": 29.8,
       "firstActivity": "2025-07-13T16:30:00+00:00",
+      "hasRecordedEvents": true,
       "metrics": {
         "events": 6,
         "uniquePlayers": 41,
@@ -618,6 +951,522 @@
           "prereleases": null
         },
         "path": "19 more events averaging at least 10 tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 16751,
+      "gameStoreId": "fb020d0d-f972-4809-b88d-71a2e5301494",
+      "name": "JAC Games",
+      "address": "115 Lithia Pinecrest Road, Brandon, FL, 33511, US",
+      "distanceMiles": 30.7,
+      "firstActivity": "2026-06-21T17:30:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 8,
+        "uniquePlayers": 26,
+        "tickets": 26,
+        "prereleasesRun": 1,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": true,
+        "prorationFactor": 0.16164383561643836,
+        "standardTarget": {
+          "events": 5,
+          "uniquePlayers": 5,
+          "tickets": 41
+        },
+        "legendaryTarget": {
+          "events": 9,
+          "uniquePlayers": 9,
+          "tickets": 81
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 0,
+          "uniquePlayers": 0,
+          "tickets": 15,
+          "prereleases": null
+        },
+        "path": "15 more event tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 18115,
+      "gameStoreId": "06692188-b839-40fa-850a-16be6171267f",
+      "name": "Wonder Water Sports Cards comics and Games ",
+      "address": "29113, US Hwy 19 N, Clearwater, FL, 33761, US",
+      "distanceMiles": 6.1,
+      "firstActivity": null,
+      "hasRecordedEvents": false,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0,
+        "prereleasesRun": 0,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250,
+          "prereleases": null
+        },
+        "path": "25 more events averaging at least 10 tickets plus 25 additional unique players."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 19462,
+      "gameStoreId": "cba32aa7-3175-4e5d-a29b-ebc91bf3f697",
+      "name": "Pops N Son Collectibles",
+      "address": "6980 Park Blvd, Pinellas Park, FL, 33781, US",
+      "distanceMiles": 9.5,
+      "firstActivity": null,
+      "hasRecordedEvents": false,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0,
+        "prereleasesRun": 0,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250,
+          "prereleases": null
+        },
+        "path": "25 more events averaging at least 10 tickets plus 25 additional unique players."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 5008,
+      "gameStoreId": "096641e8-4921-49f0-b69e-0db212247bda",
+      "name": "Titan Cards and Games",
+      "address": "4930 Park Boulevard, 4, Pinellas Park, FL, 33781, US",
+      "distanceMiles": 10.5,
+      "firstActivity": null,
+      "hasRecordedEvents": false,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0,
+        "prereleasesRun": 0,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250,
+          "prereleases": null
+        },
+        "path": "25 more events averaging at least 10 tickets plus 25 additional unique players."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 24706,
+      "gameStoreId": "4da74146-89d1-4e94-bbd2-f3118f4b6cc4",
+      "name": "ISO Collectibles",
+      "address": "4195 54th Ave N ste f, St. Petersburg, FL 33714, USA",
+      "distanceMiles": 11.9,
+      "firstActivity": null,
+      "hasRecordedEvents": false,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0,
+        "prereleasesRun": 0,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250,
+          "prereleases": null
+        },
+        "path": "25 more events averaging at least 10 tickets plus 25 additional unique players."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 17104,
+      "gameStoreId": "6941865a-7f24-4946-b82e-0819dc5b7044",
+      "name": "Ace Town N' Country",
+      "address": "7575, W Hillsborough Ave, Tampa, FL, 33615, US",
+      "distanceMiles": 14.3,
+      "firstActivity": null,
+      "hasRecordedEvents": false,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0,
+        "prereleasesRun": 0,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250,
+          "prereleases": null
+        },
+        "path": "25 more events averaging at least 10 tickets plus 25 additional unique players."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 56753,
+      "gameStoreId": "b551f87d-32c1-43cd-ae25-16bbaec6e284",
+      "name": "Coastal Cards Downtown St Petersburg",
+      "address": "2201, 1st Ave S, St. Petersburg, FL, 33712, US",
+      "distanceMiles": 15.7,
+      "firstActivity": null,
+      "hasRecordedEvents": false,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0,
+        "prereleasesRun": 0,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250,
+          "prereleases": null
+        },
+        "path": "25 more events averaging at least 10 tickets plus 25 additional unique players."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 53099,
+      "gameStoreId": "d8d85430-977d-448d-bc44-c19d547a9c1c",
+      "name": "Gambit Games",
+      "address": "4813 N Grady Ave, Tampa, FL 33614, USA",
+      "distanceMiles": 17.6,
+      "firstActivity": null,
+      "hasRecordedEvents": false,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0,
+        "prereleasesRun": 0,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250,
+          "prereleases": null
+        },
+        "path": "25 more events averaging at least 10 tickets plus 25 additional unique players."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 64154,
+      "gameStoreId": "df3a7d7b-fb16-48f3-9eab-89c6a17da9b0",
+      "name": "Sunshine Games 13412",
+      "address": "13412 Tele Com Drive, Tampa, FL, 33637, US",
+      "distanceMiles": 26.7,
+      "firstActivity": null,
+      "hasRecordedEvents": false,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0,
+        "prereleasesRun": 0,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250,
+          "prereleases": null
+        },
+        "path": "25 more events averaging at least 10 tickets plus 25 additional unique players."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 64107,
+      "gameStoreId": "2e790866-9365-436e-b020-976220d29399",
+      "name": "THEPLAYERCLUBTCG",
+      "address": "1343 Oakfield Dr, Brandon, FL 33511, USA",
+      "distanceMiles": 30.1,
+      "firstActivity": null,
+      "hasRecordedEvents": false,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0,
+        "prereleasesRun": 0,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250,
+          "prereleases": null
+        },
+        "path": "25 more events averaging at least 10 tickets plus 25 additional unique players."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 64030,
+      "gameStoreId": "4f75de00-e457-4056-bddc-7927692028e2",
+      "name": "Card Collector Club",
+      "address": "9584 Buffalo Rd, Palmetto, FL 34221, USA",
+      "distanceMiles": 31.1,
+      "firstActivity": null,
+      "hasRecordedEvents": false,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0,
+        "prereleasesRun": 0,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250,
+          "prereleases": null
+        },
+        "path": "25 more events averaging at least 10 tickets plus 25 additional unique players."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 436,
+      "gameStoreId": "40c4a7dd-5240-4d15-992f-f59a706f4591",
+      "name": "Black Flag Gaming Company",
+      "address": "173 East Bloomingdale Avenue, Brandon, FL, 33511, US",
+      "distanceMiles": 31.6,
+      "firstActivity": null,
+      "hasRecordedEvents": false,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0,
+        "prereleasesRun": 0,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250,
+          "prereleases": null
+        },
+        "path": "25 more events averaging at least 10 tickets plus 25 additional unique players."
       },
       "dataQuality": {
         "registrationFailures": 0,

@@ -48,11 +48,11 @@ function render(){
   document.querySelectorAll('tbody tr[data-id]').forEach(tr=>tr.onclick=()=>show(stores.find(s=>String(s.storeId)===tr.dataset.id)));
 }
 function show(s){
-  const target=s.tier.nextTier==='Standard'?s.tier.standardTarget:s.tier.nextTier==='Legendary'?s.tier.legendaryTarget:null;
+  const target=s.tier.nextTier==='Standard'?s.tier.standardTarget:s.tier.legendaryTarget;
   const metric=(label,v,t)=>`<div class="metric"><div class="metric-line"><span>${label}</span><strong>${v} / ${t}</strong></div><div class="meter"><span style="width:${pct(v,t)}%"></span></div></div>`;
   $('#details').classList.remove('hidden');
   const activity=s.firstActivity?new Date(s.firstActivity).toLocaleDateString():'No recorded events';
-  $('#details').innerHTML=`<h2>${esc(s.name)}${s.tier.isNew?'*':''}</h2><p><strong>Estimated tier: <span class="${s.tier.tier}">${s.tier.tier}</span></strong></p><p>${s.tier.nextTier?`To reach <strong>${s.tier.nextTier}</strong>: ${esc(s.tier.path)}`:'Highest published tier reached.'}</p>${target?metric('Events',s.metrics.events,target.events)+metric('Unique players',s.metrics.uniquePlayers,target.uniquePlayers)+metric('Event tickets',s.metrics.tickets,target.tickets):''}<p class="fine">Distance from Clearwater: ${s.distanceMiles!=null?`${s.distanceMiles.toFixed(1)} miles`:'Unavailable'} · First recorded Play Hub activity: ${activity}${s.tier.isNew?` · Estimated first-year proration ${(s.tier.prorationFactor*100).toFixed(0)}%`:''}</p><p class="fine">Registration fetch failures: ${s.dataQuality.registrationFailures}. Prerelease eligibility exactness: ${s.dataQuality.prereleaseEligibilityKnown?'known':'not yet known'}.</p>`;
+  $('#details').innerHTML=`<h2>${esc(s.name)}${s.tier.isNew?'*':''}</h2><p><strong>Estimated tier: <span class="${s.tier.tier}">${s.tier.tier}</span></strong></p><p>${s.tier.nextTier?`To reach <strong>${s.tier.nextTier}</strong>: ${esc(s.tier.path)}`:'Meets the published Legendary maintenance thresholds.'}</p>${target?metric('Events',s.metrics.events,target.events)+metric('Unique players',s.metrics.uniquePlayers,target.uniquePlayers)+metric('Event tickets',s.metrics.tickets,target.tickets):''}<p class="fine">Distance from Clearwater: ${s.distanceMiles!=null?`${s.distanceMiles.toFixed(1)} miles`:'Unavailable'} · First recorded Play Hub activity: ${activity}${s.tier.isNew?` · Estimated first-year proration ${(s.tier.prorationFactor*100).toFixed(0)}%`:''}</p><p class="fine">Registration fetch failures: ${s.dataQuality.registrationFailures}. Prerelease eligibility exactness: ${s.dataQuality.prereleaseEligibilityKnown?'known':'not yet known'}.</p>`;
   $('#details').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 

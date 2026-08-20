@@ -5,6 +5,12 @@ on:
     - cron: "0 13 * * 1"
 
   workflow_dispatch:
+    inputs:
+      post_to_discord:
+        description: "Post the refreshed 15-mile report to Discord"
+        required: false
+        default: false
+        type: boolean
 
   push:
     branches:
@@ -41,7 +47,7 @@ jobs:
         run: npm install
 
       - name: Update Play Hub data
-        run: npm run sync
+        run: npm run sync -- --radius 40
 
       - name: Copy data into website
         run: |
@@ -69,3 +75,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Post weekly report to Discord
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.post_to_discord == true) }}
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          SITE_URL: https://gregs-maker.github.io/Lorcana-Clearwater-Store-Tracker/
+          REPORT_RADIUS_MILES: 15
+        run: npm run discord:post

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T01:33:46.689Z",
+  "generatedAt": "2026-08-20T01:25:57.634Z",
   "center": {
     "lat": 27.9655722,
     "lng": -82.7958948,
@@ -8,8 +8,8 @@
   "radiusMiles": 40,
   "defaultDisplayRadiusMiles": 15,
   "maxDisplayRadiusMiles": 40,
-  "metricStart": "2025-08-19",
-  "metricEnd": "2026-08-19",
+  "metricStart": "2025-08-20",
+  "metricEnd": "2026-08-20",
   "methodology": {
     "metricWindow": {
       "mode": "rollingDays",
@@ -35,9 +35,9 @@
       "firstActivity": "2025-07-05T23:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 92,
-        "uniquePlayers": 93,
-        "tickets": 705,
+        "events": 93,
+        "uniquePlayers": 94,
+        "tickets": 721,
         "prereleasesRun": 5,
         "eligiblePrereleases": null
       },
@@ -158,7 +158,7 @@
       "tier": {
         "tier": "Standard",
         "isNew": true,
-        "prorationFactor": 0.936986301369863,
+        "prorationFactor": 0.9397260273972603,
         "standardTarget": {
           "events": 24,
           "uniquePlayers": 24,
@@ -167,16 +167,16 @@
         "legendaryTarget": {
           "events": 47,
           "uniquePlayers": 47,
-          "tickets": 469
+          "tickets": 470
         },
         "nextTier": "Legendary",
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 20,
+          "tickets": 21,
           "prereleases": null
         },
-        "path": "20 more event tickets."
+        "path": "21 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -323,7 +323,7 @@
       "metrics": {
         "events": 56,
         "uniquePlayers": 91,
-        "tickets": 305,
+        "tickets": 309,
         "prereleasesRun": 8,
         "eligiblePrereleases": null
       },
@@ -345,10 +345,10 @@
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 195,
+          "tickets": 191,
           "prereleases": null
         },
-        "path": "195 more event tickets."
+        "path": "191 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -416,7 +416,7 @@
       "tier": {
         "tier": "Standard",
         "isNew": true,
-        "prorationFactor": 0.5041095890410959,
+        "prorationFactor": 0.5068493150684932,
         "standardTarget": {
           "events": 13,
           "uniquePlayers": 13,
@@ -425,16 +425,16 @@
         "legendaryTarget": {
           "events": 26,
           "uniquePlayers": 26,
-          "tickets": 253
+          "tickets": 254
         },
         "nextTier": "Legendary",
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 46,
+          "tickets": 47,
           "prereleases": null
         },
-        "path": "46 more event tickets."
+        "path": "47 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -459,22 +459,22 @@
       "tier": {
         "tier": "Standard",
         "isNew": true,
-        "prorationFactor": 0.663013698630137,
+        "prorationFactor": 0.6657534246575343,
         "standardTarget": {
           "events": 17,
           "uniquePlayers": 17,
-          "tickets": 166
+          "tickets": 167
         },
         "legendaryTarget": {
           "events": 34,
           "uniquePlayers": 34,
-          "tickets": 332
+          "tickets": 333
         },
         "nextTier": "Legendary",
         "nextDeficits": {
           "events": 13,
           "uniquePlayers": 0,
-          "tickets": 159,
+          "tickets": 160,
           "prereleases": null
         },
         "path": "13 more events averaging at least 13 tickets."
@@ -536,7 +536,7 @@
       "firstActivity": "2025-07-13T17:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 41,
+        "events": 40,
         "uniquePlayers": 83,
         "tickets": 184,
         "prereleasesRun": 2,
@@ -579,9 +579,9 @@
       "firstActivity": "2025-07-20T19:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 30,
-        "uniquePlayers": 77,
-        "tickets": 158,
+        "events": 32,
+        "uniquePlayers": 79,
+        "tickets": 165,
         "prereleasesRun": 7,
         "eligiblePrereleases": null
       },
@@ -603,10 +603,10 @@
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 92,
+          "tickets": 85,
           "prereleases": null
         },
-        "path": "92 more event tickets."
+        "path": "85 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -760,22 +760,22 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.5863013698630137,
+        "prorationFactor": 0.589041095890411,
         "standardTarget": {
           "events": 15,
           "uniquePlayers": 15,
-          "tickets": 147
+          "tickets": 148
         },
         "legendaryTarget": {
           "events": 30,
           "uniquePlayers": 30,
-          "tickets": 294
+          "tickets": 295
         },
         "nextTier": "Standard",
         "nextDeficits": {
           "events": 8,
           "uniquePlayers": 0,
-          "tickets": 50,
+          "tickets": 51,
           "prereleases": null
         },
         "path": "8 more events averaging at least 7 tickets."
@@ -803,22 +803,22 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.8136986301369863,
+        "prorationFactor": 0.8164383561643835,
         "standardTarget": {
           "events": 21,
           "uniquePlayers": 21,
-          "tickets": 204
+          "tickets": 205
         },
         "legendaryTarget": {
           "events": 41,
           "uniquePlayers": 41,
-          "tickets": 407
+          "tickets": 409
         },
         "nextTier": "Standard",
         "nextDeficits": {
           "events": 13,
           "uniquePlayers": 0,
-          "tickets": 124,
+          "tickets": 125,
           "prereleases": null
         },
         "path": "13 more events averaging at least 10 tickets."
@@ -837,7 +837,7 @@
       "firstActivity": "2026-03-28T17:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 10,
+        "events": 9,
         "uniquePlayers": 45,
         "tickets": 70,
         "prereleasesRun": 4,
@@ -846,25 +846,25 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.39452054794520547,
+        "prorationFactor": 0.3972602739726027,
         "standardTarget": {
           "events": 10,
           "uniquePlayers": 10,
-          "tickets": 99
+          "tickets": 100
         },
         "legendaryTarget": {
           "events": 20,
           "uniquePlayers": 20,
-          "tickets": 198
+          "tickets": 199
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 0,
+          "events": 1,
           "uniquePlayers": 0,
-          "tickets": 29,
+          "tickets": 30,
           "prereleases": null
         },
-        "path": "29 more event tickets."
+        "path": "1 more event averaging at least 30 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -975,25 +975,25 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.16164383561643836,
+        "prorationFactor": 0.1643835616438356,
         "standardTarget": {
           "events": 5,
           "uniquePlayers": 5,
-          "tickets": 41
+          "tickets": 42
         },
         "legendaryTarget": {
           "events": 9,
           "uniquePlayers": 9,
-          "tickets": 81
+          "tickets": 83
         },
         "nextTier": "Standard",
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 15,
+          "tickets": 16,
           "prereleases": null
         },
-        "path": "15 more event tickets."
+        "path": "16 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,

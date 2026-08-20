@@ -65,9 +65,99 @@ function show(s){
   $('#details').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
+
+const DISCORD_REPORT_RADIUS = 15;
+const SITE_URL = 'https://gregs-maker.github.io/Lorcana-Clearwater-Store-Tracker/';
+
+function remainingFor(store,target){
+  return {
+    events: Math.max(0, target.events - store.metrics.events),
+    uniquePlayers: Math.max(0, target.uniquePlayers - store.metrics.uniquePlayers),
+    tickets: Math.max(0, target.tickets - store.metrics.tickets)
+  };
+}
+function discordCurrentStats(store){
+  if(store.tier.tier==='Legendary'){
+    const t=store.tier.legendaryTarget;
+    return `${store.metrics.events}/${t.events} events · ${store.metrics.uniquePlayers}/${t.uniquePlayers} unique · ${store.metrics.tickets}/${t.tickets} tickets`;
+  }
+  if(store.tier.tier==='Standard'){
+    const t=store.tier.standardTarget;
+    return `${store.metrics.events}/${t.events} events · ${store.metrics.uniquePlayers}/${t.uniquePlayers} unique · ${store.metrics.tickets}/${t.tickets} tickets`;
+  }
+  return `${store.metrics.events} events · ${store.metrics.uniquePlayers} unique · ${store.metrics.tickets} tickets`;
+}
+function discordRemaining(store){
+  if(store.tier.tier==='Legendary') return '';
+  const target=store.tier.tier==='Welcome'?store.tier.standardTarget:store.tier.legendaryTarget;
+  const left=remainingFor(store,target);
+  const parts=[];
+  if(left.events) parts.push(`${left.events} ${left.events===1?'event':'events'}`);
+  if(left.uniquePlayers) parts.push(`${left.uniquePlayers} unique ${left.uniquePlayers===1?'player':'players'}`);
+  if(left.tickets) parts.push(`${left.tickets} ${left.tickets===1?'ticket':'tickets'}`);
+  if(!parts.length) return '';
+  const destination=store.tier.tier==='Welcome'?'Standard':'next tier';
+  return `↳ **To reach ${destination}:** ${parts.join(' · ')}`;
+}
+function discordDate(){
+  return new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',year:'numeric'}).format(new Date(data.generatedAt));
+}
+function buildDiscordReport(){
+  const active=stores.filter(s=>inRadius(s,DISCORD_REPORT_RADIUS)&&s.metrics.events>0);
+  const tierOrder=['Legendary','Standard','Welcome'];
+  const icons={Legendary:'🟣',Standard:'🔵',Welcome:'⚪'};
+  const sections=[];
+  for(const tier of tierOrder){
+    const group=active.filter(s=>s.tier.tier===tier);
+    if(!group.length) continue;
+    const lines=group.map(s=>{
+      const star=s.tier.isNew?'*':'';
+      const first=`**${s.name}${star}** — ${discordCurrentStats(s)}`;
+      const second=discordRemaining(s);
+      return second?`${first}\n${second}`:first;
+    });
+    sections.push(`${icons[tier]} **${tier}**\n${lines.join('\n\n')}`);
+  }
+  const hasNew=active.some(s=>s.tier.isNew);
+  const note=hasNew?`\n\n*\\* Store has less than one year of recorded Play Hub activity; tier thresholds use estimated first-year proration.*`:'';
+  return `## 📊 Pinellas Lorcana Store Activity Report
+**Weekly Play Hub snapshot · Updated ${discordDate()} · 15-mile radius from Clearwater · Active stores only**
+
+${sections.join('\n\n')}${note}
+
+**Explore the full tracker:** ${SITE_URL}
+
+*Unofficial community tool. Estimated tiers are based on publicly available Ravensburger Play Hub activity and may differ from Ravensburger's official tier assignments.*`;
+}
+async function copyDiscordReport(){
+  const button=$('#copyDiscord');
+  const report=buildDiscordReport();
+  try{
+    await navigator.clipboard.writeText(report);
+    const old=button.textContent;
+    button.textContent=report.length>2000?'Copied — may need 2 Discord messages':'Copied!';
+    button.classList.add('copied');
+    setTimeout(()=>{button.textContent=old;button.classList.remove('copied');},2600);
+  }catch{
+    // Fallback for browsers that block clipboard access.
+    const area=document.createElement('textarea');
+    area.value=report;
+    area.style.position='fixed';
+    area.style.opacity='0';
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand('copy');
+    area.remove();
+    button.textContent='Copied!';
+    button.classList.add('copied');
+    setTimeout(()=>{button.textContent='Copy Discord Report';button.classList.remove('copied');},2200);
+  }
+}
+
 $('#search').oninput=render;
 $('#tier').onchange=render;
 radius.oninput=render;
 $('#includeZero').onchange=render;
+$('#copyDiscord').onclick=copyDiscordReport;
 render();
 $('#footer').textContent=`Data generated ${new Date(data.generatedAt).toLocaleString()}. * Less than one year of recorded Play Hub activity; prorated thresholds are estimates, not official Ravensburger determinations.`;

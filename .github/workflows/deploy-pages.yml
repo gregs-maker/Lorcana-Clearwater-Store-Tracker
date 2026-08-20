@@ -3,15 +3,7 @@ name: Update Play Hub data and deploy site
 on:
   schedule:
     - cron: "0 13 * * 1"
-
   workflow_dispatch:
-    inputs:
-      post_to_discord:
-        description: "Post the refreshed 15-mile report to Discord"
-        required: false
-        default: false
-        type: boolean
-
   push:
     branches:
       - main
@@ -28,32 +20,25 @@ concurrency:
 jobs:
   update-and-deploy:
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v5
-
       - name: Set up Node.js
         uses: actions/setup-node@v5
         with:
           node-version: 22
           package-manager-cache: false
-
       - name: Install dependencies
         run: npm install
-
       - name: Update Play Hub data
         run: npm run sync -- --radius 40
-
       - name: Copy data into website
         run: |
           mkdir -p public/data
           cp data/stores.json public/data/stores.json
-
       - name: Save updated data to repository
         run: |
           git config user.name "github-actions[bot]"
@@ -63,23 +48,12 @@ jobs:
             git commit -m "Update Play Hub data"
             git push
           fi
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Post weekly report to Discord
-        if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.post_to_discord == true) }}
-        env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          SITE_URL: https://gregs-maker.github.io/Lorcana-Clearwater-Store-Tracker/
-          REPORT_RADIUS_MILES: 15
-        run: npm run discord:post

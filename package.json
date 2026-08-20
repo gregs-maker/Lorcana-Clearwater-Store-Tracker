@@ -1,13 +1,14 @@
 {
   "name": "lorcana-tier-tracker-v1",
-  "version": "1.0.3",
+  "version": "2.2.0",
   "private": true,
   "type": "module",
   "description": "Estimate Ravensburger Play Hub store tiers for stores near Clearwater, Florida.",
   "scripts": {
     "sync": "node src/sync.js",
     "start": "node src/server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "discord:post": "node src/discord-report.js"
   },
   "dependencies": {
     "unofficial-ravensburger-playhub-api": "^0.3.1"

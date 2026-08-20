@@ -1,0 +1,113 @@
+{
+  "generatedAt": "2026-08-24T13:00:00Z",
+  "stores": [
+    {
+      "name": "Game-O-Storus",
+      "distanceMiles": 3.4,
+      "metrics": {
+        "events": 92,
+        "uniquePlayers": 93,
+        "tickets": 705
+      },
+      "tier": {
+        "tier": "Legendary",
+        "isNew": false,
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "nextDeficits": null
+      }
+    },
+    {
+      "name": "Store Three",
+      "distanceMiles": 8.0,
+      "metrics": {
+        "events": 41,
+        "uniquePlayers": 47,
+        "tickets": 436
+      },
+      "tier": {
+        "tier": "Standard",
+        "isNew": false,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextDeficits": {
+          "events": 9,
+          "uniquePlayers": 3,
+          "tickets": 64
+        }
+      }
+    },
+    {
+      "name": "Store Five",
+      "distanceMiles": 10.0,
+      "metrics": {
+        "events": 21,
+        "uniquePlayers": 32,
+        "tickets": 219
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextDeficits": {
+          "events": 4,
+          "uniquePlayers": 0,
+          "tickets": 31
+        }
+      }
+    },
+    {
+      "name": "Inactive Store",
+      "distanceMiles": 4.0,
+      "metrics": {
+        "events": 0,
+        "uniquePlayers": 0,
+        "tickets": 0
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextDeficits": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        }
+      }
+    }
+  ]
+}

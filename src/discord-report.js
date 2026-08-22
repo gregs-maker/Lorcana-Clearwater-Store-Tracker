@@ -17,7 +17,7 @@ function remaining(s){
   if(d.uniquePlayers)p.push(`${d.uniquePlayers} unique ${d.uniquePlayers===1?"player":"players"}`);
   if(d.tickets)p.push(`${d.tickets} ${d.tickets===1?"ticket":"tickets"}`);
   if(!p.length)return "";
-  return `↳ **To reach ${s.tier.tier==="Welcome"?"Standard":"next tier"}:** ${p.join(" · ")}`;
+  return `↳ **To reach ${s.tier.tier==="Welcome"?"Standard":"Legendary"}:** ${p.join(" · ")}`;
 }
 function storeText(s){const a=`**${s.name}${s.tier.isNew?"*":""}** — ${stats(s)}`, b=remaining(s);return b?`${a}\n${b}`:a;}
 function date(x){return new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",month:"short",day:"numeric",year:"numeric"}).format(new Date(x));}

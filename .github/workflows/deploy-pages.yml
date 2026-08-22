@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: "0 13 * * 1"
   workflow_dispatch:
+    inputs:
+      post_to_discord:
+        description: "Post the refreshed 15-mile Clearwater report to Discord"
+        required: false
+        default: false
+        type: boolean
   push:
     branches:
       - main
@@ -57,3 +63,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Post weekly report to Discord
+        if: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.post_to_discord == true) }}
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: npm run discord:post

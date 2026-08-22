@@ -96,7 +96,7 @@ function discordRemaining(store){
   if(left.uniquePlayers) parts.push(`${left.uniquePlayers} unique ${left.uniquePlayers===1?'player':'players'}`);
   if(left.tickets) parts.push(`${left.tickets} ${left.tickets===1?'ticket':'tickets'}`);
   if(!parts.length) return '';
-  const destination=store.tier.tier==='Welcome'?'Standard':'next tier';
+  const destination=store.tier.tier==='Welcome'?'Standard':'Legendary';
   return `↳ **To reach ${destination}:** ${parts.join(' · ')}`;
 }
 function discordDate(){

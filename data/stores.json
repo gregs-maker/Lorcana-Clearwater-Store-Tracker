@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T15:11:59.507Z",
+  "generatedAt": "2026-08-24T17:11:55.517Z",
   "center": {
     "lat": 27.9655722,
     "lng": -82.7958948,
@@ -755,25 +755,25 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.6,
+        "prorationFactor": 0.6027397260273972,
         "standardTarget": {
-          "events": 15,
-          "uniquePlayers": 15,
-          "tickets": 150
+          "events": 16,
+          "uniquePlayers": 16,
+          "tickets": 151
         },
         "legendaryTarget": {
-          "events": 30,
-          "uniquePlayers": 30,
-          "tickets": 300
+          "events": 31,
+          "uniquePlayers": 31,
+          "tickets": 302
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 8,
+          "events": 9,
           "uniquePlayers": 0,
-          "tickets": 53,
+          "tickets": 54,
           "prereleases": null
         },
-        "path": "8 more events averaging at least 7 tickets."
+        "path": "9 more events averaging at least 6 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -841,7 +841,7 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.40821917808219177,
+        "prorationFactor": 0.410958904109589,
         "standardTarget": {
           "events": 11,
           "uniquePlayers": 11,
@@ -850,7 +850,7 @@
         "legendaryTarget": {
           "events": 21,
           "uniquePlayers": 21,
-          "tickets": 205
+          "tickets": 206
         },
         "nextTier": "Standard",
         "nextDeficits": {

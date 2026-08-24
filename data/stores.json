@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T04:01:55.995Z",
+  "generatedAt": "2026-08-24T15:11:59.507Z",
   "center": {
     "lat": 27.9655722,
     "lng": -82.7958948,
@@ -8,8 +8,8 @@
   "radiusMiles": 40,
   "defaultDisplayRadiusMiles": 15,
   "maxDisplayRadiusMiles": 40,
-  "metricStart": "2025-08-22",
-  "metricEnd": "2026-08-22",
+  "metricStart": "2025-08-24",
+  "metricEnd": "2026-08-24",
   "methodology": {
     "metricWindow": {
       "mode": "rollingDays",
@@ -35,9 +35,9 @@
       "firstActivity": "2025-07-05T23:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 93,
-        "uniquePlayers": 94,
-        "tickets": 721,
+        "events": 94,
+        "uniquePlayers": 97,
+        "tickets": 761,
         "prereleasesRun": 5,
         "eligiblePrereleases": null
       },
@@ -111,9 +111,9 @@
       "firstActivity": "2025-06-20T10:30:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 59,
+        "events": 58,
         "uniquePlayers": 131,
-        "tickets": 590,
+        "tickets": 584,
         "prereleasesRun": 9,
         "eligiblePrereleases": null
       },
@@ -158,20 +158,63 @@
       "tier": {
         "tier": "Legendary",
         "isNew": true,
-        "prorationFactor": 0.9452054794520548,
+        "prorationFactor": 0.9506849315068493,
         "standardTarget": {
           "events": 24,
           "uniquePlayers": 24,
-          "tickets": 237
+          "tickets": 238
         },
         "legendaryTarget": {
           "events": 48,
           "uniquePlayers": 48,
-          "tickets": 473
+          "tickets": 476
         },
         "nextTier": null,
         "nextDeficits": null,
         "path": "Highest tier reached."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 3563,
+      "gameStoreId": "f0d01a4a-d848-41a2-ad64-89a6885776c2",
+      "name": "Nerdy Needs",
+      "address": "733 West Lumsden Road, Brandon, FL, 33511, US",
+      "distanceMiles": 30.6,
+      "firstActivity": "2025-06-15T17:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 56,
+        "uniquePlayers": 121,
+        "tickets": 447,
+        "prereleasesRun": 4,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Standard",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Legendary",
+        "nextDeficits": {
+          "events": 0,
+          "uniquePlayers": 0,
+          "tickets": 53,
+          "prereleases": null
+        },
+        "path": "53 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -222,49 +265,6 @@
       }
     },
     {
-      "storeId": 3563,
-      "gameStoreId": "f0d01a4a-d848-41a2-ad64-89a6885776c2",
-      "name": "Nerdy Needs",
-      "address": "733 West Lumsden Road, Brandon, FL, 33511, US",
-      "distanceMiles": 30.6,
-      "firstActivity": "2025-06-15T17:00:00+00:00",
-      "hasRecordedEvents": true,
-      "metrics": {
-        "events": 55,
-        "uniquePlayers": 121,
-        "tickets": 437,
-        "prereleasesRun": 4,
-        "eligiblePrereleases": null
-      },
-      "tier": {
-        "tier": "Standard",
-        "isNew": false,
-        "prorationFactor": 1,
-        "standardTarget": {
-          "events": 25,
-          "uniquePlayers": 25,
-          "tickets": 250
-        },
-        "legendaryTarget": {
-          "events": 50,
-          "uniquePlayers": 50,
-          "tickets": 500
-        },
-        "nextTier": "Legendary",
-        "nextDeficits": {
-          "events": 0,
-          "uniquePlayers": 0,
-          "tickets": 63,
-          "prereleases": null
-        },
-        "path": "63 more event tickets."
-      },
-      "dataQuality": {
-        "registrationFailures": 0,
-        "prereleaseEligibilityKnown": false
-      }
-    },
-    {
       "storeId": 4483,
       "gameStoreId": "c53885e4-9248-4d02-88c3-b793d46505df",
       "name": "Super Rare LLC",
@@ -273,9 +273,9 @@
       "firstActivity": "2025-06-25T23:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 55,
+        "events": 54,
         "uniquePlayers": 57,
-        "tickets": 374,
+        "tickets": 369,
         "prereleasesRun": 6,
         "eligiblePrereleases": null
       },
@@ -297,10 +297,10 @@
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 126,
+          "tickets": 131,
           "prereleases": null
         },
-        "path": "126 more event tickets."
+        "path": "131 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -316,9 +316,9 @@
       "firstActivity": "2025-06-26T23:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 56,
-        "uniquePlayers": 91,
-        "tickets": 303,
+        "events": 54,
+        "uniquePlayers": 90,
+        "tickets": 297,
         "prereleasesRun": 8,
         "eligiblePrereleases": null
       },
@@ -340,10 +340,10 @@
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 197,
+          "tickets": 203,
           "prereleases": null
         },
-        "path": "197 more event tickets."
+        "path": "203 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -359,9 +359,9 @@
       "firstActivity": "2025-08-17T21:30:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 39,
+        "events": 40,
         "uniquePlayers": 50,
-        "tickets": 289,
+        "tickets": 296,
         "prereleasesRun": 5,
         "eligiblePrereleases": null
       },
@@ -381,12 +381,12 @@
         },
         "nextTier": "Legendary",
         "nextDeficits": {
-          "events": 11,
+          "events": 10,
           "uniquePlayers": 0,
-          "tickets": 211,
+          "tickets": 204,
           "prereleases": null
         },
-        "path": "11 more events averaging at least 20 tickets."
+        "path": "10 more events averaging at least 21 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -411,25 +411,25 @@
       "tier": {
         "tier": "Standard",
         "isNew": true,
-        "prorationFactor": 0.5123287671232877,
+        "prorationFactor": 0.5178082191780822,
         "standardTarget": {
           "events": 13,
           "uniquePlayers": 13,
-          "tickets": 129
+          "tickets": 130
         },
         "legendaryTarget": {
           "events": 26,
           "uniquePlayers": 26,
-          "tickets": 257
+          "tickets": 259
         },
         "nextTier": "Legendary",
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 51,
+          "tickets": 53,
           "prereleases": null
         },
-        "path": "51 more event tickets."
+        "path": "53 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -454,22 +454,22 @@
       "tier": {
         "tier": "Standard",
         "isNew": true,
-        "prorationFactor": 0.6712328767123288,
+        "prorationFactor": 0.6767123287671233,
         "standardTarget": {
           "events": 17,
           "uniquePlayers": 17,
-          "tickets": 168
+          "tickets": 170
         },
         "legendaryTarget": {
           "events": 34,
           "uniquePlayers": 34,
-          "tickets": 336
+          "tickets": 339
         },
         "nextTier": "Legendary",
         "nextDeficits": {
           "events": 13,
           "uniquePlayers": 0,
-          "tickets": 163,
+          "tickets": 166,
           "prereleases": null
         },
         "path": "13 more events averaging at least 13 tickets."
@@ -531,7 +531,7 @@
       "firstActivity": "2025-07-13T17:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 40,
+        "events": 41,
         "uniquePlayers": 83,
         "tickets": 184,
         "prereleasesRun": 2,
@@ -660,9 +660,9 @@
       "firstActivity": "2025-06-14T22:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 29,
-        "uniquePlayers": 35,
-        "tickets": 152,
+        "events": 28,
+        "uniquePlayers": 34,
+        "tickets": 146,
         "prereleasesRun": 6,
         "eligiblePrereleases": null
       },
@@ -684,10 +684,10 @@
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 98,
+          "tickets": 104,
           "prereleases": null
         },
-        "path": "98 more event tickets."
+        "path": "104 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -755,22 +755,22 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.5945205479452055,
+        "prorationFactor": 0.6,
         "standardTarget": {
           "events": 15,
           "uniquePlayers": 15,
-          "tickets": 149
+          "tickets": 150
         },
         "legendaryTarget": {
           "events": 30,
           "uniquePlayers": 30,
-          "tickets": 298
+          "tickets": 300
         },
         "nextTier": "Standard",
         "nextDeficits": {
           "events": 8,
           "uniquePlayers": 0,
-          "tickets": 52,
+          "tickets": 53,
           "prereleases": null
         },
         "path": "8 more events averaging at least 7 tickets."
@@ -798,22 +798,22 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.821917808219178,
+        "prorationFactor": 0.8273972602739726,
         "standardTarget": {
           "events": 21,
           "uniquePlayers": 21,
-          "tickets": 206
+          "tickets": 207
         },
         "legendaryTarget": {
           "events": 42,
           "uniquePlayers": 42,
-          "tickets": 411
+          "tickets": 414
         },
         "nextTier": "Standard",
         "nextDeficits": {
           "events": 13,
           "uniquePlayers": 0,
-          "tickets": 126,
+          "tickets": 127,
           "prereleases": null
         },
         "path": "13 more events averaging at least 10 tickets."
@@ -832,7 +832,7 @@
       "firstActivity": "2026-03-28T17:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 9,
+        "events": 11,
         "uniquePlayers": 45,
         "tickets": 70,
         "prereleasesRun": 4,
@@ -841,25 +841,25 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.40273972602739727,
+        "prorationFactor": 0.40821917808219177,
         "standardTarget": {
           "events": 11,
           "uniquePlayers": 11,
-          "tickets": 101
+          "tickets": 103
         },
         "legendaryTarget": {
           "events": 21,
           "uniquePlayers": 21,
-          "tickets": 202
+          "tickets": 205
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 2,
+          "events": 0,
           "uniquePlayers": 0,
-          "tickets": 31,
+          "tickets": 33,
           "prereleases": null
         },
-        "path": "2 more events averaging at least 16 tickets."
+        "path": "33 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -961,7 +961,7 @@
       "firstActivity": "2026-06-21T17:30:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 9,
+        "events": 8,
         "uniquePlayers": 26,
         "tickets": 26,
         "prereleasesRun": 1,
@@ -970,25 +970,25 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.16986301369863013,
+        "prorationFactor": 0.17534246575342466,
         "standardTarget": {
           "events": 5,
           "uniquePlayers": 5,
-          "tickets": 43
+          "tickets": 44
         },
         "legendaryTarget": {
           "events": 9,
           "uniquePlayers": 9,
-          "tickets": 85
+          "tickets": 88
         },
         "nextTier": "Standard",
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 17,
+          "tickets": 18,
           "prereleases": null
         },
-        "path": "17 more event tickets."
+        "path": "18 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,

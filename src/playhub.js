@@ -77,3 +77,12 @@ export async function fetchRegistrations(eventId) {
   }
   return all;
 }
+
+export async function fetchEventDetails(eventId) {
+  return await api.fetchEventDetails(Number(eventId));
+}
+
+export async function fetchRoundMatches(roundId) {
+  const response = await api.fetchTournamentRoundMatches(Number(roundId));
+  return resultsOf(response);
+}

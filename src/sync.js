@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { geocode, fetchNearbyStores, fetchStoreEvents, fetchRegistrations } from "./playhub.js";
+import { geocode, fetchNearbyStores, fetchStoreEvents, fetchRegistrations, fetchEventDetails, fetchRoundMatches } from "./playhub.js";
 import { evaluateTier } from "./tier.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -145,6 +145,40 @@ async function registrationsWithRetry(eventId) {
   }
 }
 
+
+function tournamentRounds(details) {
+  for (const value of [details?.rounds, details?.tournament?.rounds, details?.tournament_rounds, details?.event?.rounds, details?.results?.rounds]) {
+    if (Array.isArray(value)) return value;
+  }
+  return [];
+}
+function roundId(round) { return round?.id ?? round?.round_id ?? round?.pk ?? null; }
+function matchHasPlayedGame(match) {
+  if (match?.is_bye === true || match?.bye === true) return false;
+  const numeric = [
+    match?.winner_games_won, match?.loser_games_won,
+    match?.player1_games_won, match?.player2_games_won,
+    match?.player_1_games_won, match?.player_2_games_won,
+    match?.games_won_by_winner, match?.games_won_by_loser
+  ];
+  if (numeric.some(v => v != null && Number.isFinite(Number(v)) && Number(v) > 0)) return true;
+  const status = normalize(match?.status ?? match?.match_status ?? "");
+  if (["completed","complete","finished","reported"].includes(status)) return true;
+  if (match?.winner || match?.winning_player || match?.winner_player) return true;
+  if (match?.is_draw === true || match?.draw === true) return true;
+  return false;
+}
+async function eventHasPlayedGame(eventId) {
+  const details = await fetchEventDetails(eventId);
+  for (const round of tournamentRounds(details)) {
+    const rid = roundId(round);
+    if (rid == null) continue;
+    const matches = await fetchRoundMatches(rid);
+    if (matches.some(matchHasPlayedGame)) return true;
+  }
+  return false;
+}
+
 console.log(`Locating ${config.location.query}...`);
 const center = await geocode(config.location.query);
 console.log(`Finding stores within ${radiusMiles} miles of ${center.formattedAddress}...`);
@@ -178,7 +212,25 @@ for (let index = 0; index < stores.length; index++) {
   let tickets = 0;
   const unique = new Set();
   let registrationFailures = 0;
+  let matchCheckFailures = 0;
+  const firedEvents = [];
+
   for (const event of metricEvents) {
+    let fired = false;
+    try {
+      fired = await eventHasPlayedGame(event.id);
+    } catch (err) {
+      matchCheckFailures += 1;
+      console.warn(`  Could not verify played games for event ${event.id}: ${err.message}`);
+    }
+
+    if (!fired) {
+      console.log(`  Skipping event ${event.id}: no played games found.`);
+      await new Promise(r => setTimeout(r, 100));
+      continue;
+    }
+
+    firedEvents.push(event);
     try {
       const registrations = await registrationsWithRetry(event.id);
       tickets += registrations.length;
@@ -193,9 +245,9 @@ for (let index = 0; index < stores.length; index++) {
     await new Promise(r => setTimeout(r, 100));
   }
 
-  const prereleases = metricEvents.filter(isPrerelease);
+  const prereleases = firedEvents.filter(isPrerelease);
   const metrics = {
-    events: metricEvents.length,
+    events: firedEvents.length,
     uniquePlayers: unique.size,
     tickets,
     prereleasesRun: prereleases.length,
@@ -217,6 +269,7 @@ for (let index = 0; index < stores.length; index++) {
     tier: evaluation,
     dataQuality: {
       registrationFailures,
+      matchCheckFailures,
       prereleaseEligibilityKnown: false
     }
   });
@@ -237,6 +290,7 @@ const payload = {
     metricWindow: config.metricWindow,
     proration: config.proration,
     prereleaseNote: "Prerelease participation is shown but not used as a failing requirement until exact eligible-set data is configured.",
+    firedEventNote: "An event counts only when Play Hub shows evidence that at least one game was played. Scheduled events with no played games are excluded.",
     playerIdentityNote: "Stable opaque IDs are preferred. Display-name fallback may slightly over/under-count unique players if API IDs are unavailable. Player names are not published."
   },
   stores: outputStores

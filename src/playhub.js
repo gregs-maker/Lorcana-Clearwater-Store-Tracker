@@ -77,22 +77,3 @@ export async function fetchRegistrations(eventId) {
   }
   return all;
 }
-
-
-export async function fetchEventDetails(eventId) {
-  return await api.fetchEventDetails(Number(eventId));
-}
-
-export async function fetchRoundMatches(roundId) {
-  const all = [];
-  let page = 1;
-  const pageSize = 100;
-  while (true) {
-    const response = await api.fetchTournamentRoundMatches(Number(roundId), page, pageSize);
-    const rows = resultsOf(response);
-    all.push(...rows);
-    if (rows.length < pageSize || all.length >= countOf(response)) break;
-    page += 1;
-  }
-  return all;
-}

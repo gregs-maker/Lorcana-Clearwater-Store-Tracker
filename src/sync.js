@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { geocode, fetchNearbyStores, fetchStoreEvents, fetchRegistrations, fetchEventDetails, fetchRoundMatches } from "./playhub.js";
+import { geocode, fetchNearbyStores, fetchStoreEvents, fetchRegistrations } from "./playhub.js";
 import { evaluateTier } from "./tier.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -145,47 +145,6 @@ async function registrationsWithRetry(eventId) {
   }
 }
 
-
-function tournamentRounds(details) {
-  // In unofficial-ravensburger-playhub-api 0.3.1, event details expose:
-  // tournament_phases[].rounds[]
-  const phases = Array.isArray(details?.tournament_phases) ? details.tournament_phases : [];
-  return phases.flatMap(phase => Array.isArray(phase?.rounds) ? phase.rounds : []);
-}
-
-function matchHasPlayedGame(match) {
-  // A bye is not a played game.
-  if (match?.match_is_bye === true) return false;
-
-  // An intentional draw is not evidence that a game was played.
-  if (match?.match_is_intentional_draw === true) return false;
-
-  const gamesWinner = Number(match?.games_won_by_winner ?? 0);
-  const gamesLoser = Number(match?.games_won_by_loser ?? 0);
-
-  // Strongest signal: the API reports at least one game win.
-  if ((Number.isFinite(gamesWinner) ? gamesWinner : 0) +
-      (Number.isFinite(gamesLoser) ? gamesLoser : 0) > 0) return true;
-
-  // A completed unintentional draw can be a played game that ended without
-  // either player recording a game win.
-  if (match?.match_is_unintentional_draw === true) return true;
-
-  return false;
-}
-
-async function eventHasPlayedGame(eventId) {
-  const details = await fetchEventDetails(eventId);
-  const rounds = tournamentRounds(details);
-
-  for (const round of rounds) {
-    if (round?.id == null) continue;
-    const matches = await fetchRoundMatches(round.id);
-    if (matches.some(matchHasPlayedGame)) return true;
-  }
-  return false;
-}
-
 console.log(`Locating ${config.location.query}...`);
 const center = await geocode(config.location.query);
 console.log(`Finding stores within ${radiusMiles} miles of ${center.formattedAddress}...`);
@@ -219,29 +178,24 @@ for (let index = 0; index < stores.length; index++) {
   let tickets = 0;
   const unique = new Set();
   let registrationFailures = 0;
-  let matchCheckFailures = 0;
-  const firedEvents = [];
+  const qualifyingEvents = [];
 
   for (const event of metricEvents) {
-    let fired = false;
-    try {
-      fired = await eventHasPlayedGame(event.id);
-    } catch (err) {
-      matchCheckFailures += 1;
-      console.warn(`  Could not verify played games for event ${event.id}: ${err.message}`);
-    }
-
-    if (!fired) {
-      console.log(`  Skipping event ${event.id}: no played games found.`);
-      await new Promise(r => setTimeout(r, 100));
-      continue;
-    }
-
-    firedEvents.push(event);
-
     try {
       const registrations = await registrationsWithRetry(event.id);
+
+      // Ravensburger requires at least 4 players to start an event.
+      // Using registrations as our activity signal also allows legitimate
+      // free-play, trading, and other non-tournament events to count.
+      if (registrations.length < 4) {
+        console.log(`  Skipping event ${event.id}: only ${registrations.length} registration(s).`);
+        await new Promise(r => setTimeout(r, 100));
+        continue;
+      }
+
+      qualifyingEvents.push(event);
       tickets += registrations.length;
+
       for (const reg of registrations) {
         const key = playerKey(reg);
         if (key) unique.add(key);
@@ -253,9 +207,9 @@ for (let index = 0; index < stores.length; index++) {
     await new Promise(r => setTimeout(r, 100));
   }
 
-  const prereleases = firedEvents.filter(isPrerelease);
+  const prereleases = qualifyingEvents.filter(isPrerelease);
   const metrics = {
-    events: firedEvents.length,
+    events: qualifyingEvents.length,
     uniquePlayers: unique.size,
     tickets,
     prereleasesRun: prereleases.length,
@@ -277,7 +231,6 @@ for (let index = 0; index < stores.length; index++) {
     tier: evaluation,
     dataQuality: {
       registrationFailures,
-      matchCheckFailures,
       prereleaseEligibilityKnown: false
     }
   });
@@ -298,7 +251,7 @@ const payload = {
     metricWindow: config.metricWindow,
     proration: config.proration,
     prereleaseNote: "Prerelease participation is shown but not used as a failing requirement until exact eligible-set data is configured.",
-    firedEventNote: "An event counts only when Play Hub match data shows that at least one game was played. Byes and intentional draws alone do not count.",
+    eventActivityNote: "An event counts toward estimated tier metrics when at least 4 players are registered. This allows free-play, trading, and other non-match organized-play events to count.",
     playerIdentityNote: "Stable opaque IDs are preferred. Display-name fallback may slightly over/under-count unique players if API IDs are unavailable. Player names are not published."
   },
   stores: outputStores

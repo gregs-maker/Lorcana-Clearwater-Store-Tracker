@@ -147,33 +147,40 @@ async function registrationsWithRetry(eventId) {
 
 
 function tournamentRounds(details) {
-  for (const value of [details?.rounds, details?.tournament?.rounds, details?.tournament_rounds, details?.event?.rounds, details?.results?.rounds]) {
-    if (Array.isArray(value)) return value;
-  }
-  return [];
+  // In unofficial-ravensburger-playhub-api 0.3.1, event details expose:
+  // tournament_phases[].rounds[]
+  const phases = Array.isArray(details?.tournament_phases) ? details.tournament_phases : [];
+  return phases.flatMap(phase => Array.isArray(phase?.rounds) ? phase.rounds : []);
 }
-function roundId(round) { return round?.id ?? round?.round_id ?? round?.pk ?? null; }
+
 function matchHasPlayedGame(match) {
-  if (match?.is_bye === true || match?.bye === true) return false;
-  const numeric = [
-    match?.winner_games_won, match?.loser_games_won,
-    match?.player1_games_won, match?.player2_games_won,
-    match?.player_1_games_won, match?.player_2_games_won,
-    match?.games_won_by_winner, match?.games_won_by_loser
-  ];
-  if (numeric.some(v => v != null && Number.isFinite(Number(v)) && Number(v) > 0)) return true;
-  const status = normalize(match?.status ?? match?.match_status ?? "");
-  if (["completed","complete","finished","reported"].includes(status)) return true;
-  if (match?.winner || match?.winning_player || match?.winner_player) return true;
-  if (match?.is_draw === true || match?.draw === true) return true;
+  // A bye is not a played game.
+  if (match?.match_is_bye === true) return false;
+
+  // An intentional draw is not evidence that a game was played.
+  if (match?.match_is_intentional_draw === true) return false;
+
+  const gamesWinner = Number(match?.games_won_by_winner ?? 0);
+  const gamesLoser = Number(match?.games_won_by_loser ?? 0);
+
+  // Strongest signal: the API reports at least one game win.
+  if ((Number.isFinite(gamesWinner) ? gamesWinner : 0) +
+      (Number.isFinite(gamesLoser) ? gamesLoser : 0) > 0) return true;
+
+  // A completed unintentional draw can be a played game that ended without
+  // either player recording a game win.
+  if (match?.match_is_unintentional_draw === true) return true;
+
   return false;
 }
+
 async function eventHasPlayedGame(eventId) {
   const details = await fetchEventDetails(eventId);
-  for (const round of tournamentRounds(details)) {
-    const rid = roundId(round);
-    if (rid == null) continue;
-    const matches = await fetchRoundMatches(rid);
+  const rounds = tournamentRounds(details);
+
+  for (const round of rounds) {
+    if (round?.id == null) continue;
+    const matches = await fetchRoundMatches(round.id);
     if (matches.some(matchHasPlayedGame)) return true;
   }
   return false;
@@ -231,6 +238,7 @@ for (let index = 0; index < stores.length; index++) {
     }
 
     firedEvents.push(event);
+
     try {
       const registrations = await registrationsWithRetry(event.id);
       tickets += registrations.length;
@@ -290,7 +298,7 @@ const payload = {
     metricWindow: config.metricWindow,
     proration: config.proration,
     prereleaseNote: "Prerelease participation is shown but not used as a failing requirement until exact eligible-set data is configured.",
-    firedEventNote: "An event counts only when Play Hub shows evidence that at least one game was played. Scheduled events with no played games are excluded.",
+    firedEventNote: "An event counts only when Play Hub match data shows that at least one game was played. Byes and intentional draws alone do not count.",
     playerIdentityNote: "Stable opaque IDs are preferred. Display-name fallback may slightly over/under-count unique players if API IDs are unavailable. Player names are not published."
   },
   stores: outputStores

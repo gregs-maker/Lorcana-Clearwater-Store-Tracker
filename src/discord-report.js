@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 const WEBHOOK_URL=process.env.DISCORD_WEBHOOK_URL;
 const SITE_URL="https://gregs-maker.github.io/Lorcana-Clearwater-Store-Tracker/";
-const REPORT_RADIUS=15;
+const REPORT_RADIUS=18;
 function inRadius(s){return s.distanceMiles!=null&&Number(s.distanceMiles)<=REPORT_RADIUS+0.05;}
 function left(s,t){return {events:Math.max(0,t.events-s.metrics.events),uniquePlayers:Math.max(0,t.uniquePlayers-s.metrics.uniquePlayers),tickets:Math.max(0,t.tickets-s.metrics.tickets)}}
 function stats(s){
@@ -26,7 +26,7 @@ async function main(){
   if(!WEBHOOK_URL){console.log("DISCORD_WEBHOOK_URL not configured; skipping.");return;}
   const data=JSON.parse(await fs.readFile("data/stores.json","utf8"));
   const stores=(data.stores||[]).filter(s=>inRadius(s)&&Number(s.metrics?.events||0)>0);
-  const embeds=[{title:"📊 Pinellas Lorcana Store Activity Report",url:SITE_URL,description:`**Weekly Play Hub snapshot · Updated ${date(data.generatedAt)} · 15-mile radius from Clearwater · Active stores only**`}];
+  const embeds=[{title:"📊 Pinellas Lorcana Store Activity Report",url:SITE_URL,description:`**Weekly Play Hub snapshot · Updated ${date(data.generatedAt)} · 18-mile radius from Clearwater · Active stores only**`}];
   for(const [tier,icon] of [["Legendary","🟣"],["Standard","🔵"],["Welcome","⚪"]]){
     const group=stores.filter(s=>s.tier?.tier===tier); if(!group.length) continue;
     chunks(group.map(storeText)).forEach((description,i,a)=>embeds.push({title:`${icon} ${tier}${a.length>1?` (${i+1}/${a.length})`:""}`,description}));

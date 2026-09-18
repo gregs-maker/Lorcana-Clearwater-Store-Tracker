@@ -243,7 +243,7 @@ const payload = {
   generatedAt: asOf.toISOString(),
   center,
   radiusMiles,
-  defaultDisplayRadiusMiles: 15,
+  defaultDisplayRadiusMiles: 18,
   maxDisplayRadiusMiles: 40,
   metricStart,
   metricEnd: isoDate(asOf),

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T13:29:17.031Z",
+  "generatedAt": "2026-10-26T13:13:16.850Z",
   "center": {
     "lat": 27.9655722,
     "lng": -82.7958948,
@@ -8,8 +8,8 @@
   "radiusMiles": 40,
   "defaultDisplayRadiusMiles": 18,
   "maxDisplayRadiusMiles": 40,
-  "metricStart": "2025-10-19",
-  "metricEnd": "2026-10-19",
+  "metricStart": "2025-10-26",
+  "metricEnd": "2026-10-26",
   "methodology": {
     "metricWindow": {
       "mode": "rollingDays",
@@ -36,9 +36,9 @@
       "firstActivity": "2025-07-05T23:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 80,
+        "events": 81,
         "uniquePlayers": 96,
-        "tickets": 814,
+        "tickets": 829,
         "prereleasesRun": 5,
         "eligiblePrereleases": null
       },
@@ -74,9 +74,9 @@
       "firstActivity": "2025-08-15T23:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 53,
-        "uniquePlayers": 147,
-        "tickets": 718,
+        "events": 52,
+        "uniquePlayers": 144,
+        "tickets": 705,
         "prereleasesRun": 4,
         "eligiblePrereleases": null
       },
@@ -114,7 +114,7 @@
       "metrics": {
         "events": 51,
         "uniquePlayers": 126,
-        "tickets": 556,
+        "tickets": 558,
         "prereleasesRun": 9,
         "eligiblePrereleases": null
       },
@@ -151,9 +151,9 @@
       "hasRecordedEvents": true,
       "metrics": {
         "events": 55,
-        "uniquePlayers": 78,
-        "tickets": 522,
-        "prereleasesRun": 5,
+        "uniquePlayers": 79,
+        "tickets": 531,
+        "prereleasesRun": 6,
         "eligiblePrereleases": null
       },
       "tier": {
@@ -188,25 +188,25 @@
       "firstActivity": "2026-10-16T23:30:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 1,
-        "uniquePlayers": 12,
-        "tickets": 12,
+        "events": 2,
+        "uniquePlayers": 13,
+        "tickets": 20,
         "prereleasesRun": 1,
         "eligiblePrereleases": null
       },
       "tier": {
         "tier": "Legendary",
         "isNew": true,
-        "prorationFactor": 0.00821917808219178,
+        "prorationFactor": 0.0273972602739726,
         "standardTarget": {
           "events": 1,
           "uniquePlayers": 1,
-          "tickets": 3
+          "tickets": 7
         },
         "legendaryTarget": {
-          "events": 1,
-          "uniquePlayers": 1,
-          "tickets": 5
+          "events": 2,
+          "uniquePlayers": 2,
+          "tickets": 14
         },
         "nextTier": null,
         "nextDeficits": null,
@@ -227,9 +227,9 @@
       "hasRecordedEvents": true,
       "metrics": {
         "events": 53,
-        "uniquePlayers": 66,
-        "tickets": 469,
-        "prereleasesRun": 2,
+        "uniquePlayers": 68,
+        "tickets": 478,
+        "prereleasesRun": 3,
         "eligiblePrereleases": null
       },
       "tier": {
@@ -250,10 +250,10 @@
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 31,
+          "tickets": 22,
           "prereleases": null
         },
-        "path": "31 more event tickets."
+        "path": "22 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -269,9 +269,9 @@
       "firstActivity": "2025-06-15T17:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 54,
-        "uniquePlayers": 116,
-        "tickets": 453,
+        "events": 55,
+        "uniquePlayers": 117,
+        "tickets": 457,
         "prereleasesRun": 4,
         "eligiblePrereleases": null
       },
@@ -293,10 +293,10 @@
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 47,
+          "tickets": 43,
           "prereleases": null
         },
-        "path": "47 more event tickets."
+        "path": "43 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -313,51 +313,8 @@
       "hasRecordedEvents": true,
       "metrics": {
         "events": 49,
-        "uniquePlayers": 60,
-        "tickets": 373,
-        "prereleasesRun": 7,
-        "eligiblePrereleases": null
-      },
-      "tier": {
-        "tier": "Standard",
-        "isNew": false,
-        "prorationFactor": 1,
-        "standardTarget": {
-          "events": 25,
-          "uniquePlayers": 25,
-          "tickets": 250
-        },
-        "legendaryTarget": {
-          "events": 50,
-          "uniquePlayers": 50,
-          "tickets": 500
-        },
-        "nextTier": "Legendary",
-        "nextDeficits": {
-          "events": 1,
-          "uniquePlayers": 0,
-          "tickets": 127,
-          "prereleases": null
-        },
-        "path": "1 more event averaging at least 127 tickets."
-      },
-      "dataQuality": {
-        "registrationFailures": 0,
-        "prereleaseEligibilityKnown": false
-      }
-    },
-    {
-      "storeId": 392,
-      "gameStoreId": "0aca62e3-f634-4faf-8c3e-a9eb5a5c9fb2",
-      "name": "Beechboyz Comics LLC",
-      "address": "2214 University Square Mall, Tampa, FL, 33612, US",
-      "distanceMiles": 22.8,
-      "firstActivity": "2025-06-26T23:00:00+00:00",
-      "hasRecordedEvents": true,
-      "metrics": {
-        "events": 49,
-        "uniquePlayers": 100,
-        "tickets": 321,
+        "uniquePlayers": 64,
+        "tickets": 372,
         "prereleasesRun": 9,
         "eligiblePrereleases": null
       },
@@ -379,10 +336,53 @@
         "nextDeficits": {
           "events": 1,
           "uniquePlayers": 0,
-          "tickets": 179,
+          "tickets": 128,
           "prereleases": null
         },
-        "path": "1 more event averaging at least 179 tickets."
+        "path": "1 more event averaging at least 128 tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 392,
+      "gameStoreId": "0aca62e3-f634-4faf-8c3e-a9eb5a5c9fb2",
+      "name": "Beechboyz Comics LLC",
+      "address": "2214 University Square Mall, Tampa, FL, 33612, US",
+      "distanceMiles": 22.8,
+      "firstActivity": "2025-06-26T23:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 50,
+        "uniquePlayers": 99,
+        "tickets": 329,
+        "prereleasesRun": 10,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Standard",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Legendary",
+        "nextDeficits": {
+          "events": 0,
+          "uniquePlayers": 0,
+          "tickets": 171,
+          "prereleases": null
+        },
+        "path": "171 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -441,31 +441,31 @@
       "firstActivity": "2026-02-16T23:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 30,
-        "uniquePlayers": 52,
-        "tickets": 252,
-        "prereleasesRun": 3,
+        "events": 31,
+        "uniquePlayers": 54,
+        "tickets": 263,
+        "prereleasesRun": 4,
         "eligiblePrereleases": null
       },
       "tier": {
         "tier": "Standard",
         "isNew": true,
-        "prorationFactor": 0.6712328767123288,
+        "prorationFactor": 0.6904109589041096,
         "standardTarget": {
-          "events": 17,
-          "uniquePlayers": 17,
-          "tickets": 168
+          "events": 18,
+          "uniquePlayers": 18,
+          "tickets": 173
         },
         "legendaryTarget": {
-          "events": 34,
-          "uniquePlayers": 34,
-          "tickets": 336
+          "events": 35,
+          "uniquePlayers": 35,
+          "tickets": 346
         },
         "nextTier": "Legendary",
         "nextDeficits": {
           "events": 4,
           "uniquePlayers": 0,
-          "tickets": 84,
+          "tickets": 83,
           "prereleases": null
         },
         "path": "4 more events averaging at least 21 tickets."
@@ -476,42 +476,42 @@
       }
     },
     {
-      "storeId": 64245,
-      "gameStoreId": "ed00bf72-a0ef-4fce-932c-bdde85b92232",
-      "name": "Theplayerclubtcgshop",
-      "address": "1343 oakfield dr, Brandon , FL, 33511, US",
-      "distanceMiles": 30.1,
-      "firstActivity": "2026-09-19T20:30:00+00:00",
+      "storeId": 53099,
+      "gameStoreId": "d8d85430-977d-448d-bc44-c19d547a9c1c",
+      "name": "Gambit Games",
+      "address": "4813 N Grady Ave, Tampa, FL 33614, USA",
+      "distanceMiles": 17.6,
+      "firstActivity": "2026-10-08T23:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 3,
-        "uniquePlayers": 17,
-        "tickets": 24,
+        "events": 2,
+        "uniquePlayers": 19,
+        "tickets": 19,
         "prereleasesRun": 1,
         "eligiblePrereleases": null
       },
       "tier": {
         "tier": "Standard",
         "isNew": true,
-        "prorationFactor": 0.0821917808219178,
+        "prorationFactor": 0.049315068493150684,
         "standardTarget": {
-          "events": 3,
-          "uniquePlayers": 3,
-          "tickets": 21
+          "events": 2,
+          "uniquePlayers": 2,
+          "tickets": 13
         },
         "legendaryTarget": {
-          "events": 5,
-          "uniquePlayers": 5,
-          "tickets": 42
+          "events": 3,
+          "uniquePlayers": 3,
+          "tickets": 25
         },
         "nextTier": "Legendary",
         "nextDeficits": {
-          "events": 2,
+          "events": 1,
           "uniquePlayers": 0,
-          "tickets": 18,
+          "tickets": 6,
           "prereleases": null
         },
-        "path": "2 more events averaging at least 9 tickets."
+        "path": "1 more event averaging at least 6 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -536,25 +536,111 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.8301369863013699,
+        "prorationFactor": 0.8493150684931506,
         "standardTarget": {
-          "events": 21,
-          "uniquePlayers": 21,
-          "tickets": 208
+          "events": 22,
+          "uniquePlayers": 22,
+          "tickets": 213
         },
         "legendaryTarget": {
-          "events": 42,
-          "uniquePlayers": 42,
-          "tickets": 416
+          "events": 43,
+          "uniquePlayers": 43,
+          "tickets": 425
         },
         "nextTier": "Standard",
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 7,
+          "tickets": 12,
           "prereleases": null
         },
-        "path": "7 more event tickets."
+        "path": "12 more event tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 1444,
+      "gameStoreId": "475a9443-2e4f-4b95-b1f5-6752644ad509",
+      "name": "Emerald City Comics",
+      "address": "4902 113th Avenue North, Clearwater, FL, 33760, US",
+      "distanceMiles": 8.6,
+      "firstActivity": "2026-01-17T16:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 14,
+        "uniquePlayers": 59,
+        "tickets": 179,
+        "prereleasesRun": 3,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": true,
+        "prorationFactor": 0.7726027397260274,
+        "standardTarget": {
+          "events": 20,
+          "uniquePlayers": 20,
+          "tickets": 194
+        },
+        "legendaryTarget": {
+          "events": 39,
+          "uniquePlayers": 39,
+          "tickets": 387
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 6,
+          "uniquePlayers": 0,
+          "tickets": 15,
+          "prereleases": null
+        },
+        "path": "6 more events averaging at least 3 tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 4476,
+      "gameStoreId": "672694f9-c61e-4487-b3c3-7a18608b18fa",
+      "name": "Sunshine Games",
+      "address": "13316 Telecom Drive, Tampa, FL, 33637, US",
+      "distanceMiles": 26.6,
+      "firstActivity": "2025-07-20T19:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 21,
+        "uniquePlayers": 88,
+        "tickets": 178,
+        "prereleasesRun": 7,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 4,
+          "uniquePlayers": 0,
+          "tickets": 72,
+          "prereleases": null
+        },
+        "path": "4 more events averaging at least 18 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -571,8 +657,8 @@
       "hasRecordedEvents": true,
       "metrics": {
         "events": 13,
-        "uniquePlayers": 70,
-        "tickets": 185,
+        "uniquePlayers": 63,
+        "tickets": 166,
         "prereleasesRun": 4,
         "eligiblePrereleases": null
       },
@@ -594,10 +680,10 @@
         "nextDeficits": {
           "events": 12,
           "uniquePlayers": 0,
-          "tickets": 65,
+          "tickets": 84,
           "prereleases": null
         },
-        "path": "12 more events averaging at least 6 tickets."
+        "path": "12 more events averaging at least 7 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -613,9 +699,9 @@
       "firstActivity": "2025-08-02T16:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 15,
-        "uniquePlayers": 61,
-        "tickets": 183,
+        "events": 14,
+        "uniquePlayers": 52,
+        "tickets": 164,
         "prereleasesRun": 3,
         "eligiblePrereleases": null
       },
@@ -635,98 +721,12 @@
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 10,
+          "events": 11,
           "uniquePlayers": 0,
-          "tickets": 67,
+          "tickets": 86,
           "prereleases": null
         },
-        "path": "10 more events averaging at least 7 tickets."
-      },
-      "dataQuality": {
-        "registrationFailures": 0,
-        "prereleaseEligibilityKnown": false
-      }
-    },
-    {
-      "storeId": 4476,
-      "gameStoreId": "672694f9-c61e-4487-b3c3-7a18608b18fa",
-      "name": "Sunshine Games",
-      "address": "13316 Telecom Drive, Tampa, FL, 33637, US",
-      "distanceMiles": 26.6,
-      "firstActivity": "2025-07-20T19:00:00+00:00",
-      "hasRecordedEvents": true,
-      "metrics": {
-        "events": 21,
-        "uniquePlayers": 91,
-        "tickets": 183,
-        "prereleasesRun": 6,
-        "eligiblePrereleases": null
-      },
-      "tier": {
-        "tier": "Welcome",
-        "isNew": false,
-        "prorationFactor": 1,
-        "standardTarget": {
-          "events": 25,
-          "uniquePlayers": 25,
-          "tickets": 250
-        },
-        "legendaryTarget": {
-          "events": 50,
-          "uniquePlayers": 50,
-          "tickets": 500
-        },
-        "nextTier": "Standard",
-        "nextDeficits": {
-          "events": 4,
-          "uniquePlayers": 0,
-          "tickets": 67,
-          "prereleases": null
-        },
-        "path": "4 more events averaging at least 17 tickets."
-      },
-      "dataQuality": {
-        "registrationFailures": 0,
-        "prereleaseEligibilityKnown": false
-      }
-    },
-    {
-      "storeId": 1444,
-      "gameStoreId": "475a9443-2e4f-4b95-b1f5-6752644ad509",
-      "name": "Emerald City Comics",
-      "address": "4902 113th Avenue North, Clearwater, FL, 33760, US",
-      "distanceMiles": 8.6,
-      "firstActivity": "2026-01-17T16:00:00+00:00",
-      "hasRecordedEvents": true,
-      "metrics": {
-        "events": 13,
-        "uniquePlayers": 59,
-        "tickets": 173,
-        "prereleasesRun": 3,
-        "eligiblePrereleases": null
-      },
-      "tier": {
-        "tier": "Welcome",
-        "isNew": true,
-        "prorationFactor": 0.7534246575342466,
-        "standardTarget": {
-          "events": 19,
-          "uniquePlayers": 19,
-          "tickets": 189
-        },
-        "legendaryTarget": {
-          "events": 38,
-          "uniquePlayers": 38,
-          "tickets": 377
-        },
-        "nextTier": "Standard",
-        "nextDeficits": {
-          "events": 6,
-          "uniquePlayers": 0,
-          "tickets": 16,
-          "prereleases": null
-        },
-        "path": "6 more events averaging at least 3 tickets."
+        "path": "11 more events averaging at least 8 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -742,9 +742,9 @@
       "firstActivity": "2025-06-14T22:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 20,
-        "uniquePlayers": 37,
-        "tickets": 145,
+        "events": 19,
+        "uniquePlayers": 34,
+        "tickets": 137,
         "prereleasesRun": 5,
         "eligiblePrereleases": null
       },
@@ -764,12 +764,12 @@
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 5,
+          "events": 6,
           "uniquePlayers": 0,
-          "tickets": 105,
+          "tickets": 113,
           "prereleases": null
         },
-        "path": "5 more events averaging at least 21 tickets."
+        "path": "6 more events averaging at least 19 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -828,34 +828,34 @@
       "firstActivity": "2026-03-28T17:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 13,
-        "uniquePlayers": 56,
-        "tickets": 111,
+        "events": 14,
+        "uniquePlayers": 60,
+        "tickets": 117,
         "prereleasesRun": 5,
         "eligiblePrereleases": null
       },
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.5616438356164384,
+        "prorationFactor": 0.5808219178082191,
         "standardTarget": {
           "events": 15,
           "uniquePlayers": 15,
-          "tickets": 141
+          "tickets": 146
         },
         "legendaryTarget": {
-          "events": 29,
-          "uniquePlayers": 29,
-          "tickets": 281
+          "events": 30,
+          "uniquePlayers": 30,
+          "tickets": 291
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 2,
+          "events": 1,
           "uniquePlayers": 0,
-          "tickets": 30,
+          "tickets": 29,
           "prereleases": null
         },
-        "path": "2 more events averaging at least 15 tickets."
+        "path": "1 more event averaging at least 29 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -871,53 +871,10 @@
       "firstActivity": "2025-10-26T19:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 12,
-        "uniquePlayers": 58,
-        "tickets": 106,
+        "events": 14,
+        "uniquePlayers": 60,
+        "tickets": 115,
         "prereleasesRun": 3,
-        "eligiblePrereleases": null
-      },
-      "tier": {
-        "tier": "Welcome",
-        "isNew": true,
-        "prorationFactor": 0.9808219178082191,
-        "standardTarget": {
-          "events": 25,
-          "uniquePlayers": 25,
-          "tickets": 246
-        },
-        "legendaryTarget": {
-          "events": 50,
-          "uniquePlayers": 50,
-          "tickets": 491
-        },
-        "nextTier": "Standard",
-        "nextDeficits": {
-          "events": 13,
-          "uniquePlayers": 0,
-          "tickets": 140,
-          "prereleases": null
-        },
-        "path": "13 more events averaging at least 11 tickets."
-      },
-      "dataQuality": {
-        "registrationFailures": 0,
-        "prereleaseEligibilityKnown": false
-      }
-    },
-    {
-      "storeId": 3369,
-      "gameStoreId": "3ab2ef43-7fd8-48e7-9d19-9eb2600f270f",
-      "name": "Mez Comics & Games",
-      "address": "8208 Cortez Road West, Bradenton, FL, 34210, US",
-      "distanceMiles": 36,
-      "firstActivity": "2025-07-19T16:00:00+00:00",
-      "hasRecordedEvents": true,
-      "metrics": {
-        "events": 12,
-        "uniquePlayers": 33,
-        "tickets": 82,
-        "prereleasesRun": 4,
         "eligiblePrereleases": null
       },
       "tier": {
@@ -936,12 +893,55 @@
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 13,
+          "events": 11,
           "uniquePlayers": 0,
-          "tickets": 168,
+          "tickets": 135,
           "prereleases": null
         },
-        "path": "13 more events averaging at least 13 tickets."
+        "path": "11 more events averaging at least 13 tickets."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 3369,
+      "gameStoreId": "3ab2ef43-7fd8-48e7-9d19-9eb2600f270f",
+      "name": "Mez Comics & Games",
+      "address": "8208 Cortez Road West, Bradenton, FL, 34210, US",
+      "distanceMiles": 36,
+      "firstActivity": "2025-07-19T16:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 13,
+        "uniquePlayers": 37,
+        "tickets": 94,
+        "prereleasesRun": 5,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 12,
+          "uniquePlayers": 0,
+          "tickets": 156,
+          "prereleases": null
+        },
+        "path": "12 more events averaging at least 13 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -957,9 +957,9 @@
       "firstActivity": "2025-07-13T16:30:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 6,
-        "uniquePlayers": 46,
-        "tickets": 72,
+        "events": 5,
+        "uniquePlayers": 37,
+        "tickets": 61,
         "prereleasesRun": 1,
         "eligiblePrereleases": null
       },
@@ -979,12 +979,12 @@
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 19,
+          "events": 20,
           "uniquePlayers": 0,
-          "tickets": 178,
+          "tickets": 189,
           "prereleases": null
         },
-        "path": "19 more events averaging at least 10 tickets."
+        "path": "20 more events averaging at least 10 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -1009,25 +1009,25 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.3287671232876712,
+        "prorationFactor": 0.34794520547945207,
         "standardTarget": {
           "events": 9,
           "uniquePlayers": 9,
-          "tickets": 83
+          "tickets": 87
         },
         "legendaryTarget": {
-          "events": 17,
-          "uniquePlayers": 17,
-          "tickets": 165
+          "events": 18,
+          "uniquePlayers": 18,
+          "tickets": 174
         },
         "nextTier": "Standard",
         "nextDeficits": {
           "events": 5,
           "uniquePlayers": 0,
-          "tickets": 34,
+          "tickets": 38,
           "prereleases": null
         },
-        "path": "5 more events averaging at least 7 tickets."
+        "path": "5 more events averaging at least 8 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -1035,42 +1035,42 @@
       }
     },
     {
-      "storeId": 94,
-      "gameStoreId": "2ff78c35-eedc-4209-97d1-f38d9a2f9066",
-      "name": "Aetheria Arts LLC",
-      "address": "9409 U.S. 19, Suite 229, PORT RICHEY, FL, 34668, US",
-      "distanceMiles": 22.7,
-      "firstActivity": "2025-06-15T06:00:00+00:00",
+      "storeId": 64245,
+      "gameStoreId": "ed00bf72-a0ef-4fce-932c-bdde85b92232",
+      "name": "Theplayerclubtcgshop",
+      "address": "1343 oakfield dr, Brandon , FL, 33511, US",
+      "distanceMiles": 30.1,
+      "firstActivity": "2026-09-19T20:30:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
-        "events": 2,
-        "uniquePlayers": 21,
-        "tickets": 21,
-        "prereleasesRun": 0,
+        "events": 3,
+        "uniquePlayers": 17,
+        "tickets": 24,
+        "prereleasesRun": 1,
         "eligiblePrereleases": null
       },
       "tier": {
         "tier": "Welcome",
-        "isNew": false,
-        "prorationFactor": 1,
+        "isNew": true,
+        "prorationFactor": 0.10136986301369863,
         "standardTarget": {
-          "events": 25,
-          "uniquePlayers": 25,
-          "tickets": 250
+          "events": 3,
+          "uniquePlayers": 3,
+          "tickets": 26
         },
         "legendaryTarget": {
-          "events": 50,
-          "uniquePlayers": 50,
-          "tickets": 500
+          "events": 6,
+          "uniquePlayers": 6,
+          "tickets": 51
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 23,
-          "uniquePlayers": 4,
-          "tickets": 229,
+          "events": 0,
+          "uniquePlayers": 0,
+          "tickets": 2,
           "prereleases": null
         },
-        "path": "23 more events averaging at least 10 tickets plus 4 additional unique players."
+        "path": "2 more event tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -1095,25 +1095,25 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.0821917808219178,
+        "prorationFactor": 0.10136986301369863,
         "standardTarget": {
           "events": 3,
           "uniquePlayers": 3,
-          "tickets": 21
+          "tickets": 26
         },
         "legendaryTarget": {
-          "events": 5,
-          "uniquePlayers": 5,
-          "tickets": 42
+          "events": 6,
+          "uniquePlayers": 6,
+          "tickets": 51
         },
         "nextTier": "Standard",
         "nextDeficits": {
           "events": 1,
           "uniquePlayers": 0,
-          "tickets": 3,
+          "tickets": 8,
           "prereleases": null
         },
-        "path": "1 more event averaging at least 3 tickets."
+        "path": "1 more event averaging at least 8 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -1138,25 +1138,25 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.03561643835616438,
+        "prorationFactor": 0.0547945205479452,
         "standardTarget": {
-          "events": 1,
-          "uniquePlayers": 1,
-          "tickets": 9
-        },
-        "legendaryTarget": {
           "events": 2,
           "uniquePlayers": 2,
-          "tickets": 18
+          "tickets": 14
+        },
+        "legendaryTarget": {
+          "events": 3,
+          "uniquePlayers": 3,
+          "tickets": 28
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 0,
+          "events": 1,
           "uniquePlayers": 0,
-          "tickets": 2,
+          "tickets": 7,
           "prereleases": null
         },
-        "path": "2 more event tickets."
+        "path": "1 more event averaging at least 7 tickets."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -1164,42 +1164,85 @@
       }
     },
     {
-      "storeId": 53099,
-      "gameStoreId": "d8d85430-977d-448d-bc44-c19d547a9c1c",
-      "name": "Gambit Games",
-      "address": "4813 N Grady Ave, Tampa, FL 33614, USA",
-      "distanceMiles": 17.6,
-      "firstActivity": "2026-10-08T23:00:00+00:00",
+      "storeId": 94,
+      "gameStoreId": "2ff78c35-eedc-4209-97d1-f38d9a2f9066",
+      "name": "Aetheria Arts LLC",
+      "address": "9409 U.S. 19, Suite 229, PORT RICHEY, FL, 34668, US",
+      "distanceMiles": 22.7,
+      "firstActivity": "2025-06-15T06:00:00+00:00",
       "hasRecordedEvents": true,
       "metrics": {
         "events": 1,
-        "uniquePlayers": 5,
-        "tickets": 5,
+        "uniquePlayers": 6,
+        "tickets": 6,
         "prereleasesRun": 0,
         "eligiblePrereleases": null
       },
       "tier": {
         "tier": "Welcome",
+        "isNew": false,
+        "prorationFactor": 1,
+        "standardTarget": {
+          "events": 25,
+          "uniquePlayers": 25,
+          "tickets": 250
+        },
+        "legendaryTarget": {
+          "events": 50,
+          "uniquePlayers": 50,
+          "tickets": 500
+        },
+        "nextTier": "Standard",
+        "nextDeficits": {
+          "events": 24,
+          "uniquePlayers": 19,
+          "tickets": 244,
+          "prereleases": null
+        },
+        "path": "24 more events averaging at least 11 tickets plus 19 additional unique players."
+      },
+      "dataQuality": {
+        "registrationFailures": 0,
+        "prereleaseEligibilityKnown": false
+      }
+    },
+    {
+      "storeId": 64154,
+      "gameStoreId": "df3a7d7b-fb16-48f3-9eab-89c6a17da9b0",
+      "name": "Sunshine Games 13412",
+      "address": "13412 Tele Com Drive, Tampa, FL, 33637, US",
+      "distanceMiles": 26.7,
+      "firstActivity": "2026-10-16T23:00:00+00:00",
+      "hasRecordedEvents": true,
+      "metrics": {
+        "events": 1,
+        "uniquePlayers": 6,
+        "tickets": 6,
+        "prereleasesRun": 1,
+        "eligiblePrereleases": null
+      },
+      "tier": {
+        "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.030136986301369864,
+        "prorationFactor": 0.0273972602739726,
         "standardTarget": {
           "events": 1,
           "uniquePlayers": 1,
-          "tickets": 8
+          "tickets": 7
         },
         "legendaryTarget": {
           "events": 2,
           "uniquePlayers": 2,
-          "tickets": 16
+          "tickets": 14
         },
         "nextTier": "Standard",
         "nextDeficits": {
           "events": 0,
           "uniquePlayers": 0,
-          "tickets": 3,
+          "tickets": 1,
           "prereleases": null
         },
-        "path": "3 more event tickets."
+        "path": "1 more event ticket."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -1396,68 +1439,25 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.10410958904109589,
+        "prorationFactor": 0.1232876712328767,
         "standardTarget": {
-          "events": 3,
-          "uniquePlayers": 3,
-          "tickets": 27
+          "events": 4,
+          "uniquePlayers": 4,
+          "tickets": 31
         },
         "legendaryTarget": {
-          "events": 6,
-          "uniquePlayers": 6,
-          "tickets": 53
+          "events": 7,
+          "uniquePlayers": 7,
+          "tickets": 62
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 3,
-          "uniquePlayers": 3,
-          "tickets": 27,
+          "events": 4,
+          "uniquePlayers": 4,
+          "tickets": 31,
           "prereleases": null
         },
-        "path": "3 more events averaging at least 9 tickets plus 3 additional unique players."
-      },
-      "dataQuality": {
-        "registrationFailures": 0,
-        "prereleaseEligibilityKnown": false
-      }
-    },
-    {
-      "storeId": 64154,
-      "gameStoreId": "df3a7d7b-fb16-48f3-9eab-89c6a17da9b0",
-      "name": "Sunshine Games 13412",
-      "address": "13412 Tele Com Drive, Tampa, FL, 33637, US",
-      "distanceMiles": 26.7,
-      "firstActivity": "2026-10-16T23:00:00+00:00",
-      "hasRecordedEvents": true,
-      "metrics": {
-        "events": 0,
-        "uniquePlayers": 0,
-        "tickets": 0,
-        "prereleasesRun": 0,
-        "eligiblePrereleases": null
-      },
-      "tier": {
-        "tier": "Welcome",
-        "isNew": true,
-        "prorationFactor": 0.00821917808219178,
-        "standardTarget": {
-          "events": 1,
-          "uniquePlayers": 1,
-          "tickets": 3
-        },
-        "legendaryTarget": {
-          "events": 1,
-          "uniquePlayers": 1,
-          "tickets": 5
-        },
-        "nextTier": "Standard",
-        "nextDeficits": {
-          "events": 1,
-          "uniquePlayers": 1,
-          "tickets": 3,
-          "prereleases": null
-        },
-        "path": "1 more event averaging at least 3 tickets plus 1 additional unique player."
+        "path": "4 more events averaging at least 8 tickets plus 4 additional unique players."
       },
       "dataQuality": {
         "registrationFailures": 0,
@@ -1611,25 +1611,25 @@
       "tier": {
         "tier": "Welcome",
         "isNew": true,
-        "prorationFactor": 0.024657534246575342,
+        "prorationFactor": 0.043835616438356165,
         "standardTarget": {
-          "events": 1,
-          "uniquePlayers": 1,
-          "tickets": 7
-        },
-        "legendaryTarget": {
           "events": 2,
           "uniquePlayers": 2,
-          "tickets": 13
+          "tickets": 11
+        },
+        "legendaryTarget": {
+          "events": 3,
+          "uniquePlayers": 3,
+          "tickets": 22
         },
         "nextTier": "Standard",
         "nextDeficits": {
-          "events": 1,
-          "uniquePlayers": 1,
-          "tickets": 7,
+          "events": 2,
+          "uniquePlayers": 2,
+          "tickets": 11,
           "prereleases": null
         },
-        "path": "1 more event averaging at least 7 tickets plus 1 additional unique player."
+        "path": "2 more events averaging at least 6 tickets plus 2 additional unique players."
       },
       "dataQuality": {
         "registrationFailures": 0,

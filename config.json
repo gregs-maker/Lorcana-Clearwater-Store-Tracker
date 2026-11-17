@@ -6,16 +6,10 @@
   },
   "metricWindow": {
     "mode": "rollingDays",
-    "rollingDays": 365,
-    "note": "Version 1 uses a rolling 365-day proxy for the four most recent set seasons. Replace with exact set-season dates when Ravensburger publishes/clarifies them."
+    "rollingDays": 364,
+    "note": "Rolling 52-week (364-day) estimate of activity; official Ravensburger evaluation uses four set seasons."
   },
   "historyStart": "2024-01-01",
-  "proration": {
-    "mode": "activeDays",
-    "fullYearDays": 365,
-    "rounding": "ceil",
-    "note": "Estimated first-year proration only. This is not claimed to be Ravensburger's official prorating formula."
-  },
   "thresholds": {
     "standard": {
       "events": 25,

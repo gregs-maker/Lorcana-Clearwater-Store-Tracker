@@ -1,35 +1,5 @@
-export function clamp(value, min, max) {
-  return Math.min(max, Math.max(min, value));
-}
-
-export function activeDays(firstActivity, asOf = new Date()) {
-  if (!firstActivity) return 365;
-  const first = new Date(firstActivity);
-  if (Number.isNaN(first.getTime())) return 365;
-  const ms = Math.max(0, asOf.getTime() - first.getTime());
-  return Math.max(1, Math.ceil(ms / 86400000));
-}
-
-export function prorationFactor(firstActivity, asOf, config) {
-  const days = activeDays(firstActivity, asOf);
-  return clamp(days / config.proration.fullYearDays, 0, 1);
-}
-
-function roundTarget(value, method = "ceil") {
-  if (method === "floor") return Math.floor(value);
-  if (method === "round") return Math.round(value);
-  return Math.ceil(value);
-}
-
-export function proratedThresholds(base, factor, config) {
-  const method = config.proration.rounding || "ceil";
-  return {
-    events: roundTarget(base.events * factor, method),
-    uniquePlayers: roundTarget(base.uniquePlayers * factor, method),
-    tickets: roundTarget(base.tickets * factor, method)
-  };
-}
-
+// Fixed, unprorated thresholds apply to every store regardless of age.
+// The metrics are gathered over the configured rolling activity window.
 export function prereleaseSatisfied(metrics) {
   if (metrics.eligiblePrereleases == null) return null;
   return metrics.prereleasesRun >= metrics.eligiblePrereleases;
@@ -83,10 +53,8 @@ export function possiblePath(deficit) {
 }
 
 export function evaluateTier(metrics, firstActivity, asOf, config) {
-  const factor = prorationFactor(firstActivity, asOf, config);
-  const isNew = factor < 1;
-  const standardTarget = proratedThresholds(config.thresholds.standard, factor, config);
-  const legendaryTarget = proratedThresholds(config.thresholds.legendary, factor, config);
+  const standardTarget = { ...config.thresholds.standard };
+  const legendaryTarget = { ...config.thresholds.legendary };
 
   let tier = "Welcome";
   if (meets(metrics, legendaryTarget, config.prerelease.required)) tier = "Legendary";
@@ -98,8 +66,6 @@ export function evaluateTier(metrics, firstActivity, asOf, config) {
 
   return {
     tier,
-    isNew,
-    prorationFactor: factor,
     standardTarget,
     legendaryTarget,
     nextTier,

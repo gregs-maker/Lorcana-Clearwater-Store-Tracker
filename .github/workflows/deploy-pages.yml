@@ -40,6 +40,8 @@ jobs:
           package-manager-cache: false
       - name: Install dependencies
         run: npm install
+      - name: Test tier calculations
+        run: npm test
       - name: Update Play Hub data
         run: npm run sync -- --radius 40
       - name: Copy data into website

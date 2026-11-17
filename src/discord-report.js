@@ -31,7 +31,6 @@ async function main(){
     const group=stores.filter(s=>s.tier?.tier===tier); if(!group.length) continue;
     chunks(group.map(storeText)).forEach((description,i,a)=>embeds.push({title:`${icon} ${tier}${a.length>1?` (${i+1}/${a.length})`:""}`,description}));
   }
-  const star=stores.some(s=>s.tier?.isNew)?`*\\* Store has less than one year of recorded Play Hub activity; tier thresholds use estimated first-year proration.*\n\n`:"";
   embeds.push({description:`**[Explore the full tracker](${SITE_URL})**\n\n*Unofficial community tool. Estimated tiers are based on publicly available Ravensburger Play Hub activity and may differ from Ravensburger's official tier assignments.*`});
   const r=await fetch(`${WEBHOOK_URL}?wait=true`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({username:"Pinellas Lorcana Store Tracker",allowed_mentions:{parse:[]},embeds})});
   if(!r.ok) throw new Error(`Discord webhook failed (${r.status}): ${await r.text()}`);

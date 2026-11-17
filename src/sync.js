@@ -249,7 +249,6 @@ const payload = {
   metricEnd: isoDate(asOf),
   methodology: {
     metricWindow: config.metricWindow,
-    proration: config.proration,
     prereleaseNote: "Prerelease participation is shown but not used as a failing requirement until exact eligible-set data is configured.",
     eventActivityNote: "An event counts toward estimated tier metrics when at least 4 players are registered. This allows free-play, trading, and other non-match organized-play events to count.",
     playerIdentityNote: "Stable opaque IDs are preferred. Display-name fallback may slightly over/under-count unique players if API IDs are unavailable. Player names are not published."

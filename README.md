@@ -18,13 +18,13 @@ A local web dashboard that estimates Ravensburger Play Hub store tiers for store
   - Standard: 25 events, 25 unique players, 250 tickets
   - Legendary: 50 events, 50 unique players, 500 tickets
 - Calculates the deficits to the next tier and provides a plain-English possible path.
-- Marks stores with less than one year of recorded Play Hub activity with `*` and estimates prorated targets.
+- Applies fixed thresholds to all stores without first-year proration.
 - Does **not** publish player names.
 
 ## Important Version 1 assumptions
 
-1. **Four set seasons:** until exact season boundaries are configured, the tracker uses the most recent 365 days as a proxy.
-2. **First-year proration:** this version assumes thresholds scale by `active days / 365`, rounded up. Ravensburger's exact prorated table/formula has not been supplied, so the dashboard clearly labels this as an estimate.
+1. **Four set seasons:** until exact season boundaries are configured, the tracker uses the most recent 52 weeks (364 days) as a proxy.
+2. **No proration:** stores of all ages use the same fixed thresholds.
 3. **Prerelease requirement:** the collector detects prerelease events, but Version 1 does not fail a store for prerelease participation until we have exact set-season eligibility data. This avoids falsely downgrading stores.
 4. **Unique players:** stable opaque user IDs are preferred when present. If an API response lacks one, the collector falls back to normalized display/name data. That can occasionally miscount two people with the same name or one person who changes display name.
 
@@ -65,17 +65,17 @@ Whenever you want fresh numbers, stop the server with `Ctrl+C`, run `npm run syn
 npm test
 ```
 
-The tests do not access Play Hub; they verify the tier/proration/deficit math.
+The tests do not access Play Hub; they verify fixed tier thresholds and deficit math.
 
 ## Configuration
 
-Edit `config.json` to change the radius, location, metric window, thresholds, or proration method. The project intentionally keeps these business rules separate from API collection so they can be updated when Ravensburger clarifies the official rules.
+Edit `config.json` to change the radius, location, metric window, thresholds, or the published thresholds. The project intentionally keeps these business rules separate from API collection so they can be updated when Ravensburger clarifies the official rules.
 
 ## Files
 
 - `src/playhub.js` — wrapper around the unofficial Play Hub API package
 - `src/sync.js` — data collection and aggregation
-- `src/tier.js` — tier/proration/next-tier calculation
+- `src/tier.js` — tier/next-tier calculation
 - `src/server.js` — tiny local web server
 - `public/` — dashboard UI
 - `data/stores.json` — generated aggregate data (no published player names)

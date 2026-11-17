@@ -47,7 +47,7 @@ function render(){
     (!tier || displayTier(s)===tier)
   );
   renderSummary(rows);
-  $('#rows').innerHTML=rows.map(s=>{const shownTier=displayTier(s);return `<tr data-id="${esc(s.storeId)}"><td><strong>${esc(s.name)}${s.tier.isNew?'*':''}</strong><div class="fine">${esc(s.address)}${s.distanceMiles!=null?` · ${s.distanceMiles.toFixed(1)} mi`:''}${s.metrics.events===0?' · No recorded events in the past year':''}</div></td><td class="tier ${shownTier}">${shownTier}${s.tier.isNew?'*':''}</td><td>${s.metrics.events}</td><td>${s.metrics.uniquePlayers}</td><td>${s.metrics.tickets}</td><td>${s.metrics.events===0?'No recorded activity in the past year':esc(s.tier.path)}</td></tr>`}).join('')||'<tr><td colspan="6">No matching stores.</td></tr>';
+  $('#rows').innerHTML=rows.map(s=>{const shownTier=displayTier(s);return `<tr data-id="${esc(s.storeId)}"><td><strong>${esc(s.name)}</strong><div class="fine">${esc(s.address)}${s.distanceMiles!=null?` · ${s.distanceMiles.toFixed(1)} mi`:''}${s.metrics.events===0?' · No recorded events in the past year':''}</div></td><td class="tier ${shownTier}">${shownTier}</td><td>${s.metrics.events}</td><td>${s.metrics.uniquePlayers}</td><td>${s.metrics.tickets}</td><td>${s.metrics.events===0?'No recorded activity in the past year':esc(s.tier.path)}</td></tr>`}).join('')||'<tr><td colspan="6">No matching stores.</td></tr>';
   document.querySelectorAll('tbody tr[data-id]').forEach(tr=>tr.onclick=()=>show(stores.find(s=>String(s.storeId)===tr.dataset.id)));
 }
 function show(s){
@@ -61,7 +61,7 @@ function show(s){
     ? 'No recorded Play Hub events in the past year.'
     : (s.tier.nextTier?`To reach <strong>${s.tier.nextTier}</strong>: ${esc(s.tier.path)}`:'Meets the published Legendary maintenance thresholds.');
   const metricsHtml=inactive?'':(target?metric('Events',s.metrics.events,target.events)+metric('Unique players',s.metrics.uniquePlayers,target.uniquePlayers)+metric('Event tickets',s.metrics.tickets,target.tickets):'');
-  $('#details').innerHTML=`<h2>${esc(s.name)}${s.tier.isNew?'*':''}</h2><p><strong>Estimated tier: <span class="${shownTier}">${shownTier}</span></strong></p><p>${statusText}</p>${metricsHtml}<p class="fine">Distance from Clearwater: ${s.distanceMiles!=null?`${s.distanceMiles.toFixed(1)} miles`:'Unavailable'} · First recorded Play Hub activity: ${activity}${s.tier.isNew?` · Estimated first-year proration ${(s.tier.prorationFactor*100).toFixed(0)}%`:''}</p><p class="fine">Registration fetch failures: ${s.dataQuality.registrationFailures}. Prerelease eligibility exactness: ${s.dataQuality.prereleaseEligibilityKnown?'known':'not yet known'}.</p>`;
+  $('#details').innerHTML=`<h2>${esc(s.name)}</h2><p><strong>Estimated tier: <span class="${shownTier}">${shownTier}</span></strong></p><p>${statusText}</p>${metricsHtml}<p class="fine">Distance from Clearwater: ${s.distanceMiles!=null?`${s.distanceMiles.toFixed(1)} miles`:'Unavailable'} · First recorded Play Hub activity: ${activity}</p><p class="fine">Registration fetch failures: ${s.dataQuality.registrationFailures}. Prerelease eligibility exactness: ${s.dataQuality.prereleaseEligibilityKnown?'known':'not yet known'}.</p>`;
   $('#details').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
@@ -111,8 +111,7 @@ function buildDiscordReport(){
     const group=active.filter(s=>s.tier.tier===tier);
     if(!group.length) continue;
     const lines=group.map(s=>{
-      const star=s.tier.isNew?'*':'';
-      const first=`**${s.name}${star}** — ${discordCurrentStats(s)}`;
+      const first=`**${s.name}** — ${discordCurrentStats(s)}`;
       const second=discordRemaining(s);
       return second?`${first}\n${second}`:first;
     });
@@ -123,7 +122,7 @@ function buildDiscordReport(){
   return `## 📊 Pinellas Lorcana Store Activity Report
 **Weekly Play Hub snapshot · Updated ${discordDate()} · 15-mile radius from Clearwater · Active stores only**
 
-${sections.join('\n\n')}${note}
+${sections.join('\n\n')}
 
 **Explore the full tracker:** ${SITE_URL}
 
@@ -160,4 +159,4 @@ radius.oninput=render;
 $('#includeZero').onchange=render;
 $('#copyDiscord').onclick=copyDiscordReport;
 render();
-$('#footer').textContent=`Data generated ${new Date(data.generatedAt).toLocaleString()}. * Less than one year of recorded Play Hub activity; prorated thresholds are estimates, not official Ravensburger determinations.`;
+$('#footer').textContent=`Data generated ${new Date(data.generatedAt).toLocaleString()}. Estimated tiers use fixed thresholds and a rolling 52-week activity window; official tiers may differ.`;

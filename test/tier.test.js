@@ -1,9 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { evaluateTier, deficits, possiblePath } from '../src/tier.js';
-const config={proration:{fullYearDays:365,rounding:'ceil'},thresholds:{standard:{events:25,uniquePlayers:25,tickets:250},legendary:{events:50,uniquePlayers:50,tickets:500}},prerelease:{required:true}};
-
-test('full-year Standard classification',()=>{const r=evaluateTier({events:30,uniquePlayers:30,tickets:300,eligiblePrereleases:null,prereleasesRun:0},'2025-01-01',new Date('2026-08-18'),config);assert.equal(r.tier,'Standard');});
-test('six-month thresholds are approximately half',()=>{const r=evaluateTier({events:13,uniquePlayers:13,tickets:125,eligiblePrereleases:null,prereleasesRun:0},'2026-02-18',new Date('2026-08-18'),config);assert.equal(r.isNew,true);assert.ok(r.standardTarget.events>=12&&r.standardTarget.events<=13);assert.ok(r.standardTarget.tickets>=124&&r.standardTarget.tickets<=125);});
-test('all numeric requirements are required',()=>{const r=evaluateTier({events:55,uniquePlayers:55,tickets:490,eligiblePrereleases:null,prereleasesRun:0},'2024-01-01',new Date('2026-08-18'),config);assert.equal(r.tier,'Standard');assert.equal(r.nextDeficits.tickets,10);});
-test('path combines event and ticket deficits',()=>{const d=deficits({events:21,uniquePlayers:34,tickets:231,eligiblePrereleases:null,prereleasesRun:0},{events:25,uniquePlayers:25,tickets:250});assert.equal(possiblePath(d),'4 more events averaging at least 5 tickets.');});
+const config={thresholds:{standard:{events:25,uniquePlayers:25,tickets:250},legendary:{events:50,uniquePlayers:50,tickets:500}},prerelease:{required:true}};
+const asOf=new Date('2026-11-17');
+const metrics=(events,uniquePlayers,tickets)=>({events,uniquePlayers,tickets,eligiblePrereleases:null,prereleasesRun:0});
+test('fixed Standard classification',()=>{assert.equal(evaluateTier(metrics(30,30,300),'2025-01-01',asOf,config).tier,'Standard');});
+test('new stores do not receive prorated thresholds',()=>{const r=evaluateTier(metrics(13,13,125),'2026-10-01',asOf,config);assert.equal(r.tier,'Welcome');assert.deepEqual(r.standardTarget,{events:25,uniquePlayers:25,tickets:250});assert.deepEqual(r.nextDeficits,{events:12,uniquePlayers:12,tickets:125,prereleases:null});});
+test('established and new stores have identical targets',()=>{const a=evaluateTier(metrics(25,25,250),'2024-01-01',asOf,config);const b=evaluateTier(metrics(25,25,250),'2026-11-01',asOf,config);assert.equal(a.tier,'Standard');assert.equal(b.tier,'Standard');assert.deepEqual(a.legendaryTarget,b.legendaryTarget);});
+test('all numeric requirements are required',()=>{const r=evaluateTier(metrics(55,55,490),'2024-01-01',asOf,config);assert.equal(r.tier,'Standard');assert.equal(r.nextDeficits.tickets,10);});
+test('path combines event and ticket deficits',()=>{const d=deficits(metrics(21,34,231),{events:25,uniquePlayers:25,tickets:250});assert.equal(possiblePath(d),'4 more events averaging at least 5 tickets.');});

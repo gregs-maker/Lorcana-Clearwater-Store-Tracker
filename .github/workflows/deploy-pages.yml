@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       post_to_discord:
-        description: "Post the refreshed 15-mile Clearwater report to Discord"
+        description: "Post the refreshed 18-mile Clearwater report to Discord"
         required: false
         default: false
         type: boolean

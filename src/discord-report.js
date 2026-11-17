@@ -29,7 +29,7 @@ async function main(){
   const embeds=[{title:"📊 Pinellas Lorcana Store Activity Report",url:SITE_URL,description:`**Weekly Play Hub snapshot · Updated ${date(data.generatedAt)} · 18-mile radius from Clearwater · Active stores only**`}];
   for(const [tier,icon] of [["Legendary","🟣"],["Standard","🔵"],["Welcome","⚪"]]){
     const group=stores.filter(s=>s.tier?.tier===tier); if(!group.length) continue;
-    chunks(group.map(storeText)).forEach((description,i,a)=>embeds.push({title:`${icon} ${tier}${a.length>1?` (${i+1}/${a.length})`:""}`,description}));
+    chunks(group.map(storeText)).forEach((description,i,a)=>embeds.push({title:`${icon} Projected to be ${tier}${a.length>1?` (${i+1}/${a.length})`:""}`,description}));
   }
   embeds.push({description:`**[Explore the full tracker](${SITE_URL})**\n\n*Unofficial community tool. Estimated tiers are based on publicly available Ravensburger Play Hub activity and may differ from Ravensburger's official tier assignments.*`});
   const r=await fetch(`${WEBHOOK_URL}?wait=true`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({username:"Pinellas Lorcana Store Tracker",allowed_mentions:{parse:[]},embeds})});

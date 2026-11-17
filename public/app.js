@@ -66,7 +66,7 @@ function show(s){
 }
 
 
-const DISCORD_REPORT_RADIUS = 15;
+const DISCORD_REPORT_RADIUS = 18;
 const SITE_URL = 'https://gregs-maker.github.io/Lorcana-Clearwater-Store-Tracker/';
 
 function remainingFor(store,target){
@@ -115,10 +115,10 @@ function buildDiscordReport(){
       const second=discordRemaining(s);
       return second?`${first}\n${second}`:first;
     });
-    sections.push(`${icons[tier]} **${tier}**\n${lines.join('\n\n')}`);
+    sections.push(`${icons[tier]} **Projected to be ${tier}**\n${lines.join('\n\n')}`);
   }
   return `## 📊 Pinellas Lorcana Store Activity Report
-**Weekly Play Hub snapshot · Updated ${discordDate()} · 15-mile radius from Clearwater · Active stores only**
+**Weekly Play Hub snapshot · Updated ${discordDate()} · 18-mile radius from Clearwater · Active stores only**
 
 ${sections.join('\n\n')}
 

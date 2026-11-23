@@ -25,6 +25,17 @@ function chunks(items,max=3400){const out=[];let cur="";for(const x of items){co
 async function main(){
   if(!WEBHOOK_URL){console.log("DISCORD_WEBHOOK_URL not configured; skipping.");return;}
   const data=JSON.parse(await fs.readFile("data/stores.json","utf8"));
+  // Fail closed: a successful workflow step alone is not enough if the snapshot
+  // is stale, absent, or has an invalid timestamp.
+  const generatedAt = Date.parse(data.generatedAt);
+  const ageMs = Date.now() - generatedAt;
+  const MAX_AGE_MS = 12 * 60 * 60 * 1000;
+  if (!Number.isFinite(generatedAt) || ageMs < -5 * 60 * 1000 || ageMs > MAX_AGE_MS) {
+    throw new Error("Discord report not posted: Play Hub data is not a fresh snapshot from this update.");
+  }
+  if (!Array.isArray(data.stores)) {
+    throw new Error("Discord report not posted: store data is missing or invalid.");
+  }
   const stores=(data.stores||[]).filter(s=>inRadius(s)&&Number(s.metrics?.events||0)>0);
   const embeds=[{title:"📊 Pinellas Lorcana Store Activity Report",url:SITE_URL,description:`**Weekly Play Hub snapshot · Updated ${date(data.generatedAt)} · 18-mile radius from Clearwater · Active stores only**`}];
   for(const [tier,icon] of [["Legendary","🟣"],["Standard","🔵"],["Welcome","⚪"]]){
